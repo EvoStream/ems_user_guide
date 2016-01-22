@@ -1,12 +1,10 @@
 ---
-title: 
+title: EMS Basics
 layout: post
 date:   2016-01-01 00:00:00 +0000
 categories: jekyll update
 permalink: emsbasics
 ---
-
-# EMS Basics
 
 There are a number of things that are good to keep in mind when interacting with the EvoStream Media Server.
 

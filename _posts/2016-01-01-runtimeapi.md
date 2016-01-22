@@ -1,12 +1,10 @@
 ---
-title: 
+title: Run-Time API
 layout: post
 date:   2016-01-01 00:00:00 +0000
 categories: jekyll update
 permalink: runtimeapi
 ---
-
-# Run-Time API
 
 The EMS provides a bi-directional RESTful API for interacting with it both manually and progromaticallyprogrammatically. It allows you to write simple web services and scripts to extend and build your own logic on top of the EMS.
 

@@ -1,12 +1,10 @@
 ---
-title: 
+title: Event Notification System
 layout: post
 date:   2016-01-01 00:00:00 +0000
 categories: jekyll update
 permalink: eventnotification
 ---
-
-## Event Notification System
 
 The EMS Event Notification System provides an extremely powerful way of interacting with the EMS. At the basic level it allows you to easily understand and monitor the usage of your server. You can either poll and parse the log file, or simply subscribe to the HTTP based notifications sent out by the EMS. **The notifications mean that you can have a fully RESTful monitor, gathering metrics in real time!**
 

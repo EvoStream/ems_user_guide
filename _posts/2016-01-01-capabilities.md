@@ -1,11 +1,9 @@
 ---
-title: 
+title: Capabilities
 layout: post
 categories: jekyll update
 permalink: Capabilities
 ---
-
-## Capabilities
 
 ### Lazy Pull - .vod Files
 

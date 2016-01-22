@@ -1,12 +1,10 @@
 ---
-title: 
+title: Starting the Server
 layout: post
 date:   2016-01-01 00:00:00 +0000
 categories: jekyll update
 permalink: startingserver
 ---
-
-## Starting the Server
 
 ### Linux Distributions (Linux apt/yum Installer)
 
