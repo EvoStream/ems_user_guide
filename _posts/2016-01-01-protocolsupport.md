@@ -180,7 +180,7 @@ The following configuration changes must be made to Firefox before it will work 
   - media.fragmented-mp4.use-blank-decoder = false
 - Restart Firefox to activate these changes
 
-### HTTP Live Streaming
+### HTTP Live Streaming (HLS)
 
 The EvoStream Media Server fully supports HLS, which allows you to send streams to iOS devices such as iPhones and iPads. HLS is a file-based protocol. It functions by taking live streams and creating small "video file chunks" that can be downloaded by iOS devices. Because HLS works this way it introduces significant latency (with default settings around 60 seconds). There is unfortunately no way around this.
 
