@@ -10,9 +10,7 @@ The EMS also has it's simple web-based UI that can be used for basic commands su
 
 You can even use the Web-UI for license installation!
 
-![](./media/image1.png)
-
-
+![EMSUI-FIG1]({{site.baseurl}}/assets/emsui.png)
 
 *Please see EMS Web UI User Guide for the detailed information on how to use the EMS user interface.* 
 
