@@ -7,14 +7,16 @@
 
 # Site settings
 title: EvoStream Media Server
-home: Return to main index
+index_title: Documentation main index
+home_title: Back to EvoStream.com
+home_url: "https://evostream.com"
 email_name: Administrator
 email: admin@evostream.com
 description: > # this means to ignore newlines until "baseurl:"
   EvoStream, 1010 Turquoise, Suite 101,
   San Diego, CA 92109, California, USA.
 baseurl: "/ems_user_guide" # the subpath of your site, e.g. /blog
-url: "http://evostream.github.io" # the base hostname & protocol for your site
+url: "http://docs.evostream.com" # the base hostname & protocol for your site
 #baseurl: "" # for local test only
 #url: "http://localhost:4000" # for local test only
 twitter_username: EvoStreamInc
@@ -22,3 +24,5 @@ github_username:  EvoStream
 
 # Build settings
 markdown: kramdown
+gems:
+  - jekyll-redirect-from
