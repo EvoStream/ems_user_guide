@@ -270,7 +270,8 @@ The following acceptor types are supported by EMS:
 | inboundLiveFlv | 0.0.0.0 | 6666 | waitForMetadata (boolean) | TCP+ILFL |
 | inboundBinVariant | 127.0.0.1 | 1113 | clustering (boolean) | TCP+BVAR |
 | inboundJsonCli | 127.0.0.1 | 1112 | useLengthPadding (boolean) | TCP+IJSONCLI |
-| inboundHttpJsonCli | 0.0.0.0 | 7777 |  | TCP+IHTT+H4C+IJSONCLI |
+| inboundHttpJsonCli | 127.0.0.1 | 7777 |  | TCP+IHTT+H4C+IJSONCLI |
+| inboundAsciiCli | 127.0.0.1 | 1222 | useLengthPadding (boolean) | TCP+IASCCLI |
 
 | Protocol Group | Tag | Protocol Type |
 | --- | --- | --- |
@@ -295,6 +296,7 @@ The following acceptor types are supported by EMS:
 |   | OH4R | Outbound HTTP for RTMP |
 | CLI Protocols | IJSONCLI | Inbound JSON CLI |
 |   | H4C | HTTP for CLI |
+|   | IASCCLI | Inbound ASCII CLI |
 | RPC Protocols | IRPC | Inbound RPC |
 |   | ORPC | Outbound RPC |
 | Passthrough Protocol | PT | Passthrough |
