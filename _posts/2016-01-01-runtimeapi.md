@@ -20,9 +20,9 @@ EvoStream provides a set of sample web services that leverage the API. These web
 
 This ASCII-based interface is often the first interface used by users. It can be accessed easily through the telnet application (available on all operating systems) or through common scripting languages.
 
-    telnet localhost 1222
-
 To access the API via the telnet interface, a telnet application will need to be launched on the same computer that the EMS is running on. The command to open telnet from a command prompt should look something like the following:
+
+    telnet localhost 1222
 
 **Note:**
 
