@@ -550,16 +550,16 @@ The following instructions can be used to get your first MSS stream running. We 
    
 4. [Optional] You can use VLC, or something similar, to validate your live stream:
     
-    rtmp://localhost/live/test1
-    rtsp://localhost:5544/test1
+         rtmp://localhost/live/test1
+         rtsp://localhost:5544/test1
 
 5. Use the createMSSStream call to start streaming MSS:
 
-    createmssstream localstreamnames=test1 targetfolder=/var/evo-webroot groupname=mss_group playlisttype=rolling cleanupdestination=1
+         createmssstream localstreamnames=test1 targetfolder=/var/evo-webroot groupname=mss_group playlisttype=rolling cleanupdestination=1
     
 6. [Optional] You can validate the MSS is being created by looking on your server for the existence of this file:
    
-    /var/evo-webroot/mss_group/manifest.ismc
+         /var/evo-webroot/mss_group/manifest.ismc
    
 7. Open a web-based MSS player, such as: [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
    
@@ -660,7 +660,7 @@ Peer to peer works when the _EMS is installed and running on the camera, wearabl
    
 6. Using the peering information, the peer connection is established directly between EMS and the Browser and streaming proceeds.
    
-    startWebRTC ersIP=52.6.14.61 ersPort=3535 roomID=YourRoom
+         startWebRTC ersIP=52.6.14.61 ersPort=3535 roomID=YourRoom
 
 EvoStream provides a hosted EvoStream Rendezvous Server at **52.6.14.61:3535**. This server can be used for testing and for deployment. This can be used with the EMS by issuing the following API command:
 
@@ -680,7 +680,7 @@ For production deployments of Peer To Peer you will want to host your own ERS, o
 
 The EvoStream hosted ERS provides a sample HTML5 WebRTC player:
 
-[http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=YOURSTREAM&room=ROOMID](http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=YOURSTREAM&room=ROOMID)
+    [http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=YOURSTREAM&room=ROOMID](http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=YOURSTREAM&room=ROOMID)
 
 ROOMID will need to be changed to the RoomID you've used in your StartWebRTC command
 
@@ -692,9 +692,10 @@ You can follow these steps to get your first Peer to Peer session started. _Agai
    
 2. Issue the EMS a StartWebRTC Command:
    
-    startWebRTC ersIP=52.6.14.61 ersPort=3535 roomID=[replaceWithYourRoomID]
+         startWebRTC ersIP=52.6.14.61 ersPort=3535 roomID=[replaceWithYourRoomID]
 
-3. On a supported browser, go to the link: [http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=test1&room=[replaceWithYourRoomID](http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=test1&room=%5BreplaceWithYourRoomID)]
+3. On a supported browser, go to the link:
+         [http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=test1&room=[replaceWithYourRoomID](http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=test1&room=%5BreplaceWithYourRoomID)]
    
 4. Press play and enjoy!
 
