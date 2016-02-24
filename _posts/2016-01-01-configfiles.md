@@ -21,23 +21,22 @@ where `<value>` could be any of the following types:
 
 **Example:**
 
-``` 
- aliases = {“flvplayback1”, “vod1”, “live”}
-```
+
+    aliases = {“flvplayback1”, “vod1”, “live”}
+
 
 **object =** list of assignments enclosed by braces {}
 
 **Example:**
 
-``` 
-configurations =
-{
-    daemon = "true",
-    pathSeparator = "/",
-    logAppenders = {...},
-    applications = {...}
-}
-```
+    configurations =
+    {
+        daemon = "true",
+        pathSeparator = "/",
+        logAppenders = {...},
+        applications = {...}
+    }
+
 
 In the example above, configurations has a value of type object. An object is a group of data inside braces (`{ }`) which may contains several assignments (`<keynames> = <values>`) separated by commas (`,`) and in turn could be another object. The assignments in the example above are `daemon`, `pathSeparator`, `logAppenders`, and `applications`. Notice that the values of `logAppenders` and applications could be another object or array recursively.
 
@@ -45,21 +44,19 @@ In the example above, configurations has a value of type object. An object is a 
 
 ### A.	Contents
 
-``` 
-configuration = 
-{
-	daemon = false,
-	pathSeparator = “/”,
-	logAppenders = 
-	{
-		-- content removed for clarity
-	},
-	applications = 
-	{
-		-- content removed for clarity
-	}
-}}
-```
+    configuration = 
+    {
+    	daemon = false,
+    	pathSeparator = “/”,
+    	logAppenders = 
+    	{
+    		-- content removed for clarity
+    	},
+    	applications = 
+    	{
+    		-- content removed for clarity
+    	}
+    }}
 
 **configuration** – This is the entire structure for all configuration needed by the EMS Server.
 
@@ -83,23 +80,18 @@ The configuration file is loaded. Part of the loading process, is the verificati
 
 - For Linux Package:
   
-  ``` 
-  /usr/bin/evostreamms –use-implicit-console-appender /etc/evostreamms/config.lua
-  ```
-  
+    /usr/bin/evostreamms –use-implicit-console-appender /etc/evostreamms/config.lua
+
 - For Linux Archive:
   
-  ``` 
-  cd EMS_INSTALL_DIRECTORY
-  ./evostreamms --use-implicit-console-appender ../config/config.lua
-  ```
+    cd EMS_INSTALL_DIRECTORY
+    ./evostreamms --use-implicit-console-appender ../config/config.lua
   
 - For Windows:
   
-  ``` 
-  cd EMS_INSTALL_DIRECTORY
-  evostreamms --use-implicit-console-appender config\config.lua
-  ```
+    cd EMS_INSTALL_DIRECTORY
+    evostreamms --use-implicit-console-appender config\config.lua
+
 
 **Note:** EMS_INSTALL_DIRECTORY is the `bin` directory within the EvoStream Media Server Archive directory.
 
@@ -111,22 +103,22 @@ The configuration file is loaded. Part of the loading process, is the verificati
 
 ### B.	logAppenders
 
-``` 
-logAppenders =
-{
+
+    logAppenders =
     {
-        name="console appender",
-        type="coloredConsole",
-        level=6
-    },
-    {
-        name="file appender",
-        type="file",
-        level=6,
-        fileName="../logs/evostream",
+        {
+            name="console appender",
+            type="coloredConsole",
+            level=6
+        },
+        {
+            name="file appender",
+            type="file",
+            level=6,
+            fileName="../logs/evostream",
+        }
     }
-}
-```
+
 
 This section contains a list of log appenders. The entire collection of appenders listed in this section is loaded inside the logger at config-time. All log messages will be than passed to all these log appenders. Depending on the log level, an appender may (or may not) log the message. "Logging" a message means "saving" it on the specified "media" (in the example below we have a console appender and a file).
 
@@ -149,20 +141,19 @@ This section contains a list of log appenders. The entire collection of appender
 
 ### C.	applications
 
-``` 
-applications =
-{
-    rootDirectory = "./",
+    applications =
     {
-        name="evostreamms",
-        -- settings for evostreamms
-    },
-    {
-        name="anotherApplication",
-        -- settings for anotherApplication
-    },
-}
-```
+        rootDirectory = "./",
+        {
+            name="evostreamms",
+            -- settings for evostreamms
+        },
+        {
+            name="anotherApplication",
+            -- settings for anotherApplication
+        },
+    }
+
 
 This section is where all the applications inside the server are placed. It holds the attributes of each application that the server will use to launch them. Each application may have specific attributes that it requires to execute its own functionality.
 
@@ -178,30 +169,29 @@ Following the _rootDirectory_, there is a collection of applications. Each appli
 
 ### D.	application Definition
 
-``` 
-{
-    appDir="./",
-    name="evostreamms",
-    description="EVOSTREAM MEDIA SERVER",
-    protocol="dynamiclinklibrary",
-    default=true,
-    pushPullPersistenceFile="..\\config\\pushPullSetup.xml",
-    authPersistenceFile="..\\config\\auth.xml",
-    connectionsLimitPersistenceFile="..\\config\\connlimits.xml",
-    bandwidthLimitPersistenceFile="..\\config\\bandwidthlimits.xml",
-    ingestPointsPersistenceFile="..\\config\\ingestpoints.xml",
-    streamsExpireTimer=10,
-    rtcpDetectionInterval=15,
-    hasStreamAliases=false,
-    hasIngestPoints=false,
-    validateHandshake=false,
-    aliases={"er", "live", "vod"},
-    maxRtmpOutBuffer=512*1024,
-    hlsVersion=3,
-    useSourcePts=false,
-    enableCheckBandwidth=true,
-    vodRedirectRtmpIp="",
-```
+    {
+        appDir="./",
+        name="evostreamms",
+        description="EVOSTREAM MEDIA SERVER",
+        protocol="dynamiclinklibrary",
+        default=true,
+        pushPullPersistenceFile="..\\config\\pushPullSetup.xml",
+        authPersistenceFile="..\\config\\auth.xml",
+        connectionsLimitPersistenceFile="..\\config\\connlimits.xml",
+        bandwidthLimitPersistenceFile="..\\config\\bandwidthlimits.xml",
+        ingestPointsPersistenceFile="..\\config\\ingestpoints.xml",
+        streamsExpireTimer=10,
+        rtcpDetectionInterval=15,
+        hasStreamAliases=false,
+        hasIngestPoints=false,
+        validateHandshake=false,
+        aliases={"er", "live", "vod"},
+        maxRtmpOutBuffer=512*1024,
+        hlsVersion=3,
+        useSourcePts=false,
+        enableCheckBandwidth=true,
+        vodRedirectRtmpIp="",
+
 
 This is where the settings of an application are defined. We will present only the settings common to all applications. Later on, we will also explain the settings particular to certain applications.
 
@@ -233,15 +223,14 @@ This is where the settings of an application are defined. We will present only t
 
 ### E.	media
 
-``` 
-{
-mediaStorage = {
-	recordedStreamsStorage="../media",
-	{
-	description="Default media storage",
-	mediaFolder="../media",
-	},
-```
+    {
+    mediaStorage = {
+    	recordedStreamsStorage="../media",
+    	{
+    	description="Default media storage",
+    	mediaFolder="../media",
+    	},
+
 
 This is where the settings of media folder defined. There are several uses of the media folder:
 
@@ -517,12 +506,11 @@ There are two main types of event sinks:
 
 1\. **File Event Sink** – Event details are written to a log file located relative to the current directory. The log file is overwritten each time the EMS starts up.
 
-``` 
     type="file",
     filename="log.txt",
     format="text",
     customData="my custom data"
-```
+
 
 File sink configuration:
 
@@ -589,11 +577,11 @@ The format can be one of the following types:
 
 As indicated above, the name of the file can be set using a number of options. For example,
 
-``` 
-filename = "/var/evostreamms/logs/streams"
-appendTimestamp = true
-appendInstance = true
-```
+
+    filename = "/var/evostreamms/logs/streams"
+    appendTimestamp = true
+    appendInstance = true
+
 
 The log file would be `/var/evostreamms/logs/streams_0237_20140311_183046.txt`.
 
@@ -603,12 +591,10 @@ The log file would be `/var/evostreamms/logs/streams_0237_20140311_183046.txt`.
 
 RPC sink configuration:
 
-``` 
-type="RPC",
-url="http://192.168.1.5:5555/something/service",
-serializerType="JSON",
-customData="my custom data"
-```
+    type="RPC",
+    url="http://192.168.1.5:5555/something/service",
+    serializerType="JSON",
+    customData="my custom data"
 
 The `url` field specifies the destination which will be accepting the HTTP POST event notifications..
 
@@ -618,9 +604,8 @@ The `serializer` type can be one of the following formats:
 
 Format of JSON POST:
 
-``` 
-{"payload":{"creationTimestamp":1349335053486.4370,"name":"","queryTimestamp":1349335053487.4370,"type":"NR","uniqueId":1,"upTime":1.0000},"type":"streamCreated"}
-```
+    {"payload":{"creationTimestamp":1349335053486.4370,"name":"","queryTimestamp":1349335053487.4370,"type":"NR","uniqueId":1,"upTime":1.0000},"type":"streamCreated"}
+
 
 - **XML**
 
@@ -686,13 +671,12 @@ If a `customData` parameter is not specified for a node, the value of the parent
 
 Within the application section you can find the configuration for the EvoStream Transcoder. The default settings are generally going to be fine for all applications, but under certain circumstances they may need to be adjusted. The transcoder section looks like the following:
 
-``` 
-transcoder = {
-    scriptPath="..\\emsTranscoder.bat",
-    srcUriPrefix="rtsp://localhost:5544/",
-    dstUriPrefix="-f flv tcp://localhost:6666/"
-},
-```
+
+    transcoder = {
+        scriptPath="..\\emsTranscoder.bat",
+        srcUriPrefix="rtsp://localhost:5544/",
+        dstUriPrefix="-f flv tcp://localhost:6666/"
+    },
 
 The `srcUriPrefix` tells the transcoder how to get the stream from the EMS. The `dstUriPrefix` tells the transcoder how to push the stream back to the EMS. The ports used in these two values must match the acceptors the EMS is actively listening on. By default this is i`5544` for RTSP and `6666` for liveFLV.
 
@@ -1021,9 +1005,7 @@ To enable Proxy Authentication you will open the _webconfig.lua_ config file and
 
 Once enabled, new API calls using Proxy Authentication will be formatted as follows:
 
-``` 
-http://userName:password@IPofEWS:port/pseudoDomain/command?params=…
-```
+    http://userName:password@IPofEWS:port/pseudoDomain/command?params=…
 
 
 
@@ -1067,10 +1049,8 @@ This file is used when reconnecting to the stream after restarting the EMS serve
 
 This file sets the allowed maximum number of connections to EMS.
 
-``` 
-<?xml version="1.0" ?>
-<UINT32 name="">0</UINT32>
-```
+    <?xml version="1.0" ?>
+    <UINT32 name="">0</UINT32>
 
 
 
@@ -1115,10 +1095,8 @@ This file is used when reconnecting to the stream after restarting the EMS serve
 
 The configuration for the authentication. If true, the authentication declared in users.lua will be read before the streaming starts.
 
-``` 
-<?xml version="1.0" ?>
-<BOOL name="">true</BOOL>
-```
+    <?xml version="1.0" ?>
+    <BOOL name="">true</BOOL>
 
 
 
