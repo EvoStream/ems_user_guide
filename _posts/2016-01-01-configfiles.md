@@ -80,17 +80,17 @@ The configuration file is loaded. Part of the loading process, is the verificati
 
 - For Linux Package:
   
-    /usr/bin/evostreamms –use-implicit-console-appender /etc/evostreamms/config.lua
+         /usr/bin/evostreamms –use-implicit-console-appender /etc/evostreamms/config.lua
 
 - For Linux Archive:
   
-    cd EMS_INSTALL_DIRECTORY
-    ./evostreamms --use-implicit-console-appender ../config/config.lua
+         cd EMS_INSTALL_DIRECTORY
+         ./evostreamms --use-implicit-console-appender ../config/config.lua
   
 - For Windows:
   
-    cd EMS_INSTALL_DIRECTORY
-    evostreamms --use-implicit-console-appender config\config.lua
+         cd EMS_INSTALL_DIRECTORY
+         evostreamms --use-implicit-console-appender config\config.lua
 
 
 **Note:** EMS_INSTALL_DIRECTORY is the `bin` directory within the EvoStream Media Server Archive directory.
