@@ -35,15 +35,12 @@ Administrative privileges are required. This can be accomplished in many ways.
 
 If the sudo utility is available:
 
-``` 
-$ su –
-```
+   $ su –
+
 
 If the sudo utility is not available:
 
-``` 
-$ sudo su –
-```
+   $ sudo su –
 
 **Note:**
 
@@ -57,27 +54,20 @@ The prompt changes from `$` to `#` when administrative privileges are enabled.
 
 - Debian based Linux distributions (Ubuntu or Debian)
   
-  ``` 
-  # wget http://apt.evostream.com/installkeys.sh -O /tmp/installkeys.sh
-  ```
+    # wget http://apt.evostream.com/installkeys.sh -O /tmp/installkeys.sh
   
 - RedHat based Linux distributions (CentOS, Fedora, RHEL)
   
-  ``` 
-  # curl http://yum.evostream.com/installkeys.sh -o /tmp/installkeys.sh
-  ```
+    # curl http://yum.evostream.com/installkeys.sh -o /tmp/installkeys.sh
+  
 
 2\. Execute the script to install the EvoStream software repository and keys
 
-``` 
-# sh /tmp/installkeys.sh
-```
+    # sh /tmp/installkeys.sh
 
 - If successful, the following message should be printed on the console:
   
-  ``` 
-  "EvoStream keys installed successfully"
-  ```
+    "EvoStream keys installed successfully"
 
 At this stage, the EvoStream software repository and keys are successfully installed and you can install packages from it.
 
@@ -89,47 +79,33 @@ The following steps are used to install the EvoStream Media Server, and can be r
 
 - Debian based Linux distributions (Ubuntu or Debian)
   
-  ``` 
    # apt-get install evostream-mediaserver
-  ```
-  
+
 - RedHat based Linux distributions (CentOS, Fedora, RHEL)
   
-  ``` 
    # yum install evostream-mediaserver
-  ```
 
 4\. Install the license file. Copy the License.lic file into `/etc/evostream` folder
 
-``` 
-# cp /path/to/License.lic /etc/evostream/License.lic
-```
+    # cp /path/to/License.lic /etc/evostream/License.lic
 
 5\. Run EvoStream Media Server
 
 - To start EMS in console mode
   
-  ``` 
-  # service evostreamms start_console
-  ```
+    # service evostreamms start_console
   
 - To start EMS as a daemon background process
   
-  ``` 
-  # service evostreamms start
-  ```
-  
+    # service evostreamms start
+
 - To restart EMS (will restart as daemon)
   
-  ``` 
-  # service evostreamms restart
-  ```
+    # service evostreamms restart
   
 - To stop EMS
   
-  ``` 
-  # service evostreamms stop
-  ```
+    # service evostreamms stop
 
 
 
