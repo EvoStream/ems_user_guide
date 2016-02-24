@@ -18,17 +18,13 @@ The EMS is fully compatible with the RTMP protocol.  This means that it can rece
 
 There are several ways that the EMS can use RTMP as a stream source. The first method is to use theRuntime-API to pull a stream from some source. An example of a pullstream command is as follows:
 
-``` 
-pullstream uri=rtmp://192.168.1.5/live/MyTestStream localstreamname=TestStream
-```
+    pullstream uri=rtmp://192.168.1.5/live/MyTestStream localstreamname=TestStream
 
 This command tells the EMS to go and get “`MyTestStream`” from the server at `192.168.1.5`, and then name the stream locally “`TestStream`”.  Please see EMS Basics for more information on local stream names.
 
 The typical URI format for requesting RTMP streams is as follows:
 
-``` 
-rtmp://[username[:password]@]IP[:port]/<app name>/<stream name>
-```
+    rtmp://[username[:password]@]IP[:port]/<app name>/<stream name>
 
 **The EMS also allows you to PUSH an RTMP stream into it.**  Software like Wirecast and FMLE prefer this type of paradigm.  The EMS listens for RTMP streams on port 1935, which is the default RTMP port. You will need to consult the manuals for your stream source to understand how to push a stream.  The EMS can require authentication for streams that are being pushed to it.  If authentication is enabled, you will need to either supply authentication details along with your pushed stream, or disable authentication for the EMS before the EMS will accept your streams.  Please see the Security and Authentication for more information.
 
@@ -42,21 +38,16 @@ The EMS accepts RTMP streams pushed both as PUBLISH and RECORD.  PUBLISH streams
 
 Any source stream can be played back via RTMP.  Most often a user will be using a Flash based player which will make an RTMP request on the EMS.  To request an RTMP stream from the EMS, you need to use a URI formatted as follows:
 
-``` 
-rtmp://[username[:password]@]IP[:port]/<live/vod>/<LocalStreamName>
-```
+    rtmp://[username[:password]@]IP[:port]/<live/vod>/<LocalStreamName>
 
 An example of this URI may be:
 
-``` 
-rtmp://192.168.1.5/live/MyTestStream
-```
+    rtmp://192.168.1.5/live/MyTestStream
 
 The EMS can also PUSH streams towards another server or some other destination.  The `pushStream` Runtime-API function is used to do this. An example of the `pushStream` API is as follows:
 
-``` 
-pushStream uri=rtmp://192.168.1.5/live/ localStreamName=MyTestStream targetStreamName=PushedStreamName
-```
+    pushStream uri=rtmp://192.168.1.5/live/ localStreamName=MyTestStream targetStreamName=PushedStreamName
+
 
 
 
@@ -104,9 +95,8 @@ Ingest Points operate by specifying two linked values: the `privateStreamName` a
 
 To enable Ingest Points, you must set the `hasIngestPoints` parameter in the config/config.lua file to true:
 
-``` 
-hasingestpoints=true,
-```
+    hasingestpoints=true,
+
 
 Ingest Points have a full set of API functions which must beused to add and remove Ingest Points. The API functions are listed here, but please see the API Definition doc for a full description.
 
@@ -134,29 +124,21 @@ While RTCP channels are usually included in RTSP streams, they are not required 
 
 There are several ways that the EMS can use RTSP as a stream source.  The first method is to use the Runtime-API to pull a stream from some source. An example of a `pullstream` command is as follows:
 
-``` 
-pullstream uri=rtsp://192.168.1.5/MyTestStream localstreamname=TestStream
-```
+    pullstream uri=rtsp://192.168.1.5/MyTestStream localstreamname=TestStream
 
 This command tells the EMS to go and get “`MyTestStream”` from the server at `192.168.1.5`, and then name the stream locally “`TestStream”`.  Please see EMS Basics for more information on local stream names.
 
 The typical URI format for requesting RTSP streams is as follows:
 
-``` 
-rtsp://[username[:password]@]IP[:port]/<stream or sdp file name>
-```
+    rtsp://[username[:password]@]IP[:port]/<stream or sdp file name>
 
 When pulling an RTSP stream via an HTTP Proxy, the pullstream command will be as follows:
 
-``` 
-pullstream uri=rtsp://[username[:password]@]HostName/StreamName httpProxy=IP[:PORT] localstreamname=TestStream
-```
+    pullstream uri=rtsp://[username[:password]@]HostName/StreamName httpProxy=IP[:PORT] localstreamname=TestStream
 
 To pull an RTSP stream via HTTP the httpProxy parameter can again be leveraged:
 
-``` 
-pullstream uri=rtsp://[username[:password]@]HostName/StreamName httpProxy=self localstreamname=TestStream
-```
+    pullstream uri=rtsp://[username[:password]@]HostName/StreamName httpProxy=self localstreamname=TestStream
 
 **Note:**
 
@@ -174,49 +156,36 @@ Please see the API Definition document for more information on API commands.
 
 Any source stream can be played back via RTSP.  Some common RTSP players are VLC, Android Devices and Quicktime.  To request an RTSP stream from the EMS, you need to use a URI formatted as follows:
 
-``` 
-rtsp://[username[:password]@]IP[:port]/[ts|vod|vodts]/<LocalStreamName or MP4 file name>
-```
+    rtsp://[username[:password]@]IP[:port]/[ts|vod|vodts]/<LocalStreamName or MP4 file name>
 
 Some examples of RTSP requests are as follows:
 
 Request a live RTSP/RTP stream:
 
-``` 
-rtsp://192.168.1.5:5544/MyTestStream
-```
+    rtsp://192.168.1.5:5544/MyTestStream
 
 Request a live RTSP/MPEG-TS stream:
 
-``` 
-rtsp://192.168.1.5:5544/ts/MyTestStream
-```
+    rtsp://192.168.1.5:5544/ts/MyTestStream
 
 Request a VOD MP4 file via RTSP/RTP:
 
-``` 
-rtsp://192.168.1.5:5544/vod/MyMP4File.mp4
-```
+    rtsp://192.168.1.5:5544/vod/MyMP4File.mp4
+
 
 Request a VOD MP4 file via RTSP/MPEG-TS:
 
-``` 
-rtsp://192.168.1.5:5544/vodts/MyMP4File.mp4
-```
+    rtsp://192.168.1.5:5544/vodts/MyMP4File.mp4
 
 For VOD requests, the file name can also include the path relative to the media folder:
 
-``` 
-rtsp://192.168.1.5:5544/vod/folder1/folder2/MyMP4File.mp4
-```
+    rtsp://192.168.1.5:5544/vod/folder1/folder2/MyMP4File.mp4
 
 Only MP4 files can be used for RTSP VOD playback.  TS and FLV files cannot be used as sources at this time.
 
 The EMS can also PUSH streams towards another server or some other destination.  The `pushStream` Runtime-API function is used to do this. An example of the pushStream API is as follows:
 
-``` 
-pushStream uri=rtsp://192.168.1.5:554/live/ localStreamName=MyTestStream targetStreamName=PushedStreamName
-```
+    pushStream uri=rtsp://192.168.1.5:554/live/ localStreamName=MyTestStream targetStreamName=PushedStreamName
 
 **Please see the API Definition document for more information on API commands.**
 
@@ -226,15 +195,11 @@ pushStream uri=rtsp://192.168.1.5:554/live/ localStreamName=MyTestStream targetS
 
 The EMS fully supports MPEG2 Transport Stream over both UDP and TCP.  UDP MPEG-TS streams can be unicast, broadcast or multicast.  In order to receive a UDP multicast stream, you must issue a pullstream command using the **dmpegtsudp://** protocol indicator (the “d” is for deep-parse):
 
-``` 
-pullstream uri=dmpegtsudp://229.0.0.1:5555 localstreamname=TestTSMulticast
-```
+    pullstream uri=dmpegtsudp://229.0.0.1:5555 localstreamname=TestTSMulticast
 
 TCP MPEG-TS streams can also be pulled by the server by using the above command, simply replacing “**udp”** with “**tcp”**: 
 
-``` 
-pullstream uri=dmpegtstcp://192.168.1.5:5555 localstreamname=TestTSMulticast
-```
+    pullstream uri=dmpegtstcp://192.168.1.5:5555 localstreamname=TestTSMulticast
 
 MPEG-TS TCP streams can also be pushed into the server, but you must first tell the EMS what ports to listen to.  You can do this by creating “acceptors” in the **config/config.lua** file:
 
@@ -288,9 +253,7 @@ acceptors =
 
 The `streamname` parameter is optional, default will match **all** incoming streams.
 
-``` 
-ws://host:port/streamname
-```
+    ws://host:port/streamname
 
 Use the GET format to open a websocket channel:
 
@@ -332,9 +295,8 @@ acceptors =
 
 The above defines an outbound FMP4 acceptor. It does say "inbound" because the Web Socket connector is inbound, it being an acceptor.
 
-``` 
-ws://host:port/streamname
-```
+    ws://host:port/streamname
+
 
 To connect, a Web Socket "GET" call is used. Following is the "GET" URI format
 
@@ -378,21 +340,16 @@ To generate an HLS stream, you must use the createHLSStream API command. This co
 
 The HLS files, once generated by the EMS, must be served via a standard HTTP server. If you are using the EvoStream Amazon AMI, or have used one of the EvoStream Media Server installers you already have the EvoStream Web Server (EWS) installed and running. The `targetFolder` parameter should reflect the web-root of your web server. When using EWS, the parameter should be as follows:
 
-``` 
-targetFolder=../evo-webroot
-```
+    targetFolder=../evo-webroot
 
 An example `createHLSStream` command is as follows:
 
-``` 
-createHLSStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=hls playlisttype=rolling
-```
+    createHLSStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=hls playlisttype=rolling
+
 
 To access this stream from an iOS device, you would use the following URL:
 
-``` 
-http://IPofEMS:8888/hls/playlist.m3u8
-```
+    http://IPofEMS:8888/hls/playlist.m3u8
 
 
 
@@ -412,9 +369,7 @@ This parameter defaults to 0 (false).
 
 Below is an example usage of the `createHLSStream` API command with the `hlsResume` parameter:
 
-``` 
-createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling hlsResume=1
-```
+    createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling hlsResume=1
 
 
 
@@ -426,9 +381,8 @@ The createHLSStream API has an `audioOnly` parameter that specifies if the resul
 
 An example `createHLSStream` command with the `audioOnly` parameter follows:
 
-``` 
-createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling audioOnly=1
-```
+    createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling audioOnly=1
+
 
 
 
@@ -438,9 +392,8 @@ The EMS supports Verimatrix DRM for HLS streams. To enable Verimatrix support fo
 
 Once Verimatrix support is enabled in the config file, you can then conditionally add Verimatrix protection to your HLS streams. Simply add the following parameter:
 
-``` 
-createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling drmType=verimatrix	
-```
+    createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling drmType=verimatrix	
+
 
 
 
@@ -448,9 +401,7 @@ createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupNam
 
 The EMS supports AES encryption for HLS streams. To use AES encryption you must specify two values in the createHLSStream API command:
 
-``` 
-createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling drmType=ems aesKeyCount=5
-```
+    createHLSStream localstreamnames=MyStream targetFolder=/var/evo-webroot groupName=hls playlisttype=rolling drmType=ems aesKeyCount=5
 
 Simply add the following parameter:
 
@@ -484,21 +435,16 @@ To generate an HDS stream, you must use the `createHDSStream` API command. This 
 
 The HDS files, once generated by the EMS, must be served via a standard HTTP server. If you are using the EvoStream Amazon AMI, or have used one of the EvoStream Media Server installers you already have the EvoStream Web Server (EWS) installed and running. The `targetFolder` parameter should reflect the web-root of your web server. When using EWS, the parameter should be as follows:
 
-``` 
-createHDSStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=hds playlisttype=rolling targetFolder=../evo-webroot
-```
+    createHDSStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=hds playlisttype=rolling targetFolder=../evo-webroot
 
 An example `createHDSStream` command is as follows:
 
-``` 
-http://IPofEMS:8888/hds/manifest.f4m
-```
+    http://IPofEMS:8888/hds/manifest.f4m
+
 
 To access this stream from a flash or html based player, you would use the following URL:
 
-``` 
-http://IPofEMS:8888/hds/manifest.f4m
-```
+    http://IPofEMS:8888/hds/manifest.f4m
 
 When HDS generated files are being served through a web server (e.g. Nginx, Apache, etc.) there are times that the HDS bootstrap file is being requested several times by the HDS player but no corresponding fragment file has actually been served. This results to the video to be stalled between a few seconds to a minute before settling to a normal operation. The workaround is to adjust the configuration file of the web server (Nginx, Apache, etc.) and disable the "sendfile" option by setting it to **off**.
 
@@ -527,21 +473,15 @@ To generate a DASH stream, you must use the `createDASHStream` API command. This
 
 The DASH files, once generated by the EMS, must be served via a standard HTTP server. If you are using the EvoStream Amazon AMI, or have used one of the EvoStream Media Server installers you already have the Evostream Web Server (EWS) installed and running. The `targetFolder` parameter should reflect the web-root of your web server. When using EWS, the parameter should be as follows:
 
-``` 
-targetFolder=../evo-webroot
-```
+    targetFolder=../evo-webroot
 
 An example createDASHStream command is as follows:
 
-``` 
-createDASHStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=dash playlisttype=rolling
-```
+    createDASHStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=dash playlisttype=rolling
 
 To access this stream from an HTML5 based player, you would use the following URL:
 
-``` 
-http://IPofEMS:8888/dash/manifest.mpd
-```
+    http://IPofEMS:8888/dash/manifest.mpd
 
 
 
@@ -570,21 +510,16 @@ To generate an MSS stream, you must use the `createMSSStream` API command. This 
 
 The MSS files, once generated by the EMS, must be served via a standard HTTP server. If you are using the EvoStream Amazon AMI, or have used one of the EvoStream Media Server installers you already have the Evostream Web Server (EWS) installed and running. The targetFolder parameter should reflect the web-root of your web server. When using EWS, the parameter should be as follows:
 
-``` 
-targetFolder=../evo-webroot
-```
+    targetFolder=../evo-webroot
+
 
 An example createMSSStream command is as follows:
 
-``` 
-createMSSStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=mss playlisttype=rolling
-```
+    createMSSStream localstreamnames=MyStream targetFolder=../evo-webroot groupName=mss playlisttype=rolling
 
 To access this stream from a Silverlight player, you would use the following URL:
 
-``` 
-http://IPofEMS:8888/mss/manifest.ismc
-```
+    http://IPofEMS:8888/mss/manifest.ismc
 
 
 
@@ -614,23 +549,17 @@ The following instructions can be used to get your first MSS stream running. We 
 3. Pull in or obtain a source live stream (see "Obtaining Sample Streams" above). We will assume your sample stream name is "test1"
    
 4. [Optional] You can use VLC, or something similar, to validate your live stream:
-   
-   ``` 
+    
     rtmp://localhost/live/test1
     rtsp://localhost:5544/test1
-   ```
-   
+
 5. Use the createMSSStream call to start streaming MSS:
-   
-   ``` 
+
     createmssstream localstreamnames=test1 targetfolder=/var/evo-webroot groupname=mss_group playlisttype=rolling cleanupdestination=1
-   ```
-   
+    
 6. [Optional] You can validate the MSS is being created by looking on your server for the existence of this file:
    
-   ``` 
     /var/evo-webroot/mss_group/manifest.ismc
-   ```
    
 7. Open a web-based MSS player, such as: [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
    
@@ -644,10 +573,9 @@ The following instructions can be used to get your first MSS stream running. We 
 
 The EMS can ingest raw, or unsolicited, RTP traffic. However, there are extra pieces of information that the EMS will need in order properly process a raw RTP stream. Typically this information is transferred out-of-band, either through (most commonly) RTSP, or through some other proprietary channel. Since we are operating outside of the bounds of RTSP, the data will need to be added to the pullStream command. The pullStream parameters `isAudio`, `audioCodecBytes`, `spsBytes` and `ppsBytes` are used. Please see the API Description document for more details on these parameters.
 
-``` 
-pullstream uri=rtp://127.0.0.1:8888 localstreamname=rtptest isAudio=1 audioCodecBytes=1190
-pullstream uri=rtp://127.0.0.1:8888 localstreamname=rtptest isAudio=0 spsBytes=Z0LAHpZiA2P8vCAAAAMAIAAABgHixck= ppsBytes=aMuMsg==
-```
+    pullstream uri=rtp://127.0.0.1:8888 localstreamname=rtptest isAudio=1 audioCodecBytes=1190
+    pullstream uri=rtp://127.0.0.1:8888 localstreamname=rtptest isAudio=0 spsBytes=Z0LAHpZiA2P8vCAAAAMAIAAABgHixck= ppsBytes=aMuMsg==
+
 
 
 
@@ -657,9 +585,7 @@ pullstream uri=rtp://127.0.0.1:8888 localstreamname=rtptest isAudio=0 spsBytes=Z
 
 The EMS provides a convenient way to record any inbound live stream. Simply issue a `record` API command to record any local stream:
 
-``` 
-record localStreamName=Video1 pathtofile=/recording/path type=mp4|ts|flv overwrite=1
-```
+    record localStreamName=Video1 pathtofile=/recording/path type=mp4|ts|flv overwrite=1
 
 If you issue the record command for a stream that does not yet exist, EMS will queue the operation and will only start recording once the stream is available.
 
@@ -667,9 +593,8 @@ Users can split a recording into multiple files (chunked recording) by using the
 
 In the example below, a new file will be created after 1 minute (60 seconds) has elapsed:
 
-``` 
-record localStreamName=Video1 pathtofile=/recording/path type=mp4 chunkLength=60
-```
+    record localStreamName=Video1 pathtofile=/recording/path type=mp4 chunkLength=60
+
 
 
 
@@ -706,10 +631,8 @@ There may be times that you will want to generate a "live" stream out of a file.
 
 This can be accomplished by performing an RTSP `pullStream` command on a VOD file (see RTSP above), which then creates a new "live" inbound stream for the EMS. You can then either request that stream via RTMP/RTSP, or perform a `pushStream` command to push it out as any of the other protocols. If, for example, you have the mp4 file testFile.mp4, you can create a MPEG-TS UDP Multicast stream from it using the following sequence:
 
-``` 
-pullstream uri=rtsp://localhost:5544/vod/testFile.mp4 localstreamname=TestMulticast
-pushstream uri=mpegtsudp://229.0.0.1:5555 localstreamname=TestMulticast
-```
+    pullstream uri=rtsp://localhost:5544/vod/testFile.mp4 localstreamname=TestMulticast
+    pushstream uri=mpegtsudp://229.0.0.1:5555 localstreamname=TestMulticast
 
 
 
@@ -737,9 +660,7 @@ Peer to peer works when the _EMS is installed and running on the camera, wearabl
    
 6. Using the peering information, the peer connection is established directly between EMS and the Browser and streaming proceeds.
    
-   ``` 
     startWebRTC ersIP=52.6.14.61 ersPort=3535 roomID=YourRoom
-   ```
 
 EvoStream provides a hosted EvoStream Rendezvous Server at **52.6.14.61:3535**. This server can be used for testing and for deployment. This can be used with the EMS by issuing the following API command:
 
@@ -771,10 +692,8 @@ You can follow these steps to get your first Peer to Peer session started. _Agai
    
 2. Issue the EMS a StartWebRTC Command:
    
-   ``` 
     startWebRTC ersIP=52.6.14.61 ersPort=3535 roomID=[replaceWithYourRoomID]
-   ```
-   
+
 3. On a supported browser, go to the link: [http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=test1&room=[replaceWithYourRoomID](http://ers.evostream.com:5050/demo/evowrtcclient.html?stream=test1&room=%5BreplaceWithYourRoomID)]
    
 4. Press play and enjoy!
