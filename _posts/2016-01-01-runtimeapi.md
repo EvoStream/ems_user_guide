@@ -20,9 +20,7 @@ EvoStream provides a set of sample web services that leverage the API. These web
 
 This ASCII-based interface is often the first interface used by users. It can be accessed easily through the telnet application (available on all operating systems) or through common scripting languages.
 
-``` 
-telnet localhost 1222
-```
+    telnet localhost 1222
 
 To access the API via the telnet interface, a telnet application will need to be launched on the same computer that the EMS is running on. The command to open telnet from a command prompt should look something like the following:
 
@@ -34,10 +32,8 @@ Telnet may need to be enabled using Windows® operating systems. To do this, go 
 
 Please also note that on Windows®, the default telnet behavior will need to be changed. The local echo and new line mode should be set for proper behavior. Once telnet is launched, exit the telnet session by typing `CTRL`+`]`. Then enter the following commands:
 
-``` 
-set localecho
-set crlf
-```
+    set localecho
+    set crlf
 
 To return to the Windows® telnet session, press `Enter` or `Return` key.
 
@@ -47,9 +43,7 @@ An example of a command request and response from a telnet session would be the 
 
 **Request:**
 
-``` 
-version
-```
+    version
 
 **Response:**
 
@@ -76,15 +70,11 @@ Accessing the API over the same Telnet interface, but by using the port **1112**
 
 An example of a command request/response from a telnet session would be the following:
 
-``` 
-telnet localhost 1112
-```
+    telnet localhost 1112
 
 **Request:**
 
-``` 
-version
-```
+    version
 
 **Response:**
 
@@ -102,17 +92,13 @@ To access the API via the HTTP interface, simply make an HTTP request on the ser
 
 A general http format request would be the following:
 
-``` 
-http://[EMS IP]:7777/[API]
-```
+    http://[EMS IP]:7777/[API]
 
 An example of a command request and response from an HTTP session would be the following:
 
 **Request:**
 
-``` 
-http://localhost:7777/version
-```
+    http://localhost:7777/version
 
 **Response:**
 
@@ -122,33 +108,25 @@ http://localhost:7777/version
 
 All of the API functions are available via HTTP, but the request must be formatted slightly different if parameters are included. To make an API call over HTTP, the parameters to be used should be in base64 format.
 
-``` 
-http://IP:7777/[API]?params=([base64 encoded parameters])
-```
+    http://IP:7777/[API]?params=([base64 encoded parameters])
 
 Sampling a `pullstream` command:
 
-``` 
     (firstParam=XXX secondParam=YYY…)
     (uri=rtsp://localhost:5544/vod/mp4.bunny.mp4 localStreamName=bunny)
-```
 
 1. Type in the parameters first:
    
 2. Convert the parameters using a base64 encoder:
    
    **Converted parameter:**
-   
-   ``` 
-    dXJpPXJ0c3A6Ly9sb2NhbGhvc3Q6NTU0NC92b2QvbXA0LmJ1bm55Lm1wNCBsb2NhbHN0cmVhbW5hbWU9YnVubnkp
-   ```
-   
+
+         dXJpPXJ0c3A6Ly9sb2NhbGhvc3Q6NTU0NC92b2QvbXA0LmJ1bm55Lm1wNCBsb2NhbHN0cmVhbW5hbWU9YnVubnkp
+
 3. The corresponding request in HTTP format would be:
-   
-   ``` 
-    http://localhost:7777/pullstream?params= dXJpPXJ0c3A6Ly9sb2NhbGhvc3Q6NTU0NC92b2QvbXA0LmJ1bm55Lm1wNCBsb2NhbHN0cmVhbW5hbWU9YnVubnkp
-   ```
-   
+
+         http://localhost:7777/pullstream?params= dXJpPXJ0c3A6Ly9sb2NhbGhvc3Q6NTU0NC92b2QvbXA0LmJ1bm55Lm1wNCBsb2NhbHN0cmVhbW5hbWU9YnVubnkp
+
 4. **Base64**
 
 A group of similar binary-to-text encoding schemes that represent binary data in an  [ASCII](https://en.wikipedia.org/wiki/ASCII) string format by translating it into a  [radix](https://en.wikipedia.org/wiki/Radix)-64 representation. There are available base64 encoders online to get the encoded result.
@@ -205,9 +183,7 @@ This document can be found in the documents folder of the EMS package.
 
 We will start by retrieving an external stream that we can then use to playback. First we will pull in a test stream. The source URI is:
 
-``` 
-rtmp://s2pchzxmtymn2k.cloudfront.net/cfx/st/mp4:sintel.mp4
-```
+    rtmp://s2pchzxmtymn2k.cloudfront.net/cfx/st/mp4:sintel.mp4
 
 We will start by retrieving an external stream that we can then use to playback. First we will pull in a test stream. The source URI is:
 
@@ -218,19 +194,16 @@ For simplicity, we will be using the Command Line interface to send API commands
 2. Open a telnet session to the EMS
    
    To pull the stream, type the command below on the telnet console:
-   
-   ``` 
-    pullstream uri= rtmp://s2pchzxmtymn2k.cloudfront.net/cfx/st/mp4:sintel.mp4 localstreamname=TestStream1
-   ```
+    
+         pullstream uri= rtmp://s2pchzxmtymn2k.cloudfront.net/cfx/st/mp4:sintel.mp4 localstreamname=TestStream1
+  
    
    This will tell the EMS to go get the test stream and name it `TestStream1`.
    
 3. Now that the stream is a part of the EMS, we will want to play it. You can either use the EMS UI, or we can use an external player such as VLC. You can use any of the following URL's to play it back using "Network Stream":
    
-   ``` 
-    rtmp://localhost/live/TestStream1
-    rtmp://localhost/live/TestStre
-   ```
+         rtmp://localhost/live/TestStream1
+         rtmp://localhost/live/TestStre
 
 
 
@@ -244,23 +217,17 @@ To specify a User Defined Variable, you simply need to append an underscore (`_`
 
 Some common use cases for User Defined Variables are as follows:
 
-``` 
-setTimer value=120 _streamName=MyStreamsetTimer value=120 _streamID=5
-```
+    setTimer value=120 _streamName=MyStreamsetTimer value=120 _streamID=5
 
 Setting a timer to stop a stream after a set period of time
 
-``` 
-pullstream uri=rtmp://192.168.1.5/live/myStream localstreamname=test1 _myID=5 _myName=secretSquirrel
-```
+    pullstream uri=rtmp://192.168.1.5/live/myStream localstreamname=test1 _myID=5 _myName=secretSquirrel
 
 These commands will fire a timer event after 120 seconds with the set stream name or stream id respectively.
 
 1. Attach a custom identifier to a local stream
    
-   ``` 
-    pushstream uri=rtmp://192.168.1.5/live/myStream localstreamname=test1 _myID=5 _myName=secretSquirrel
-   ```
+         pushstream uri=rtmp://192.168.1.5/live/myStream localstreamname=test1 _myID=5 _myName=secretSquirrel
 
 Set a custom value on a pushed stream
 
