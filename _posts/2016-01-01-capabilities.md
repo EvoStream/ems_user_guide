@@ -13,26 +13,22 @@ _VOD files are currently supported for RTMP and RTSP stream requests._
 
 To use Lazy Pull, simply create .vod files within one of the configured EMS media folders. Clients can then make requests on the .vod file just like it was a normal media file (such as mp4):
 
-``` 
-rtmp://127.0.0.1/vod/mp4:myFile.mp4
-```
+    rtmp://127.0.0.1/vod/mp4:myFile.mp4
 
 The construction of VOD files is very simple, it is merely the same parameters you would use in a pullStream command placed on separate lines. 
 
 An example VOD file is as follows:
 
-``` 
-uri=rtsp://IPofEMS/myStream
-forceTCP=1
-```
+    uri=rtsp://IPofEMS/myStream
+    forceTCP=1
 
 If you want to keep the source stream even after all clients have disconnected, you need to use the `keepAlive` parameter:
 
-``` 
-uri=rtsp://IPofEMS/myStream
-forceTCP=1
-keepAlive=1
-```
+
+    uri=rtsp://IPofEMS/myStream
+    forceTCP=1
+    keepAlive=1
+
 
 The only `pullStream` parameter which is NOT available within a VOD file is:
 
@@ -54,13 +50,13 @@ Playlist files MUST have the ".lst" extension.
 
 An example Playlist File is as follows:
 
-``` 
-# sourceOffset, duration, localStreamName
-0,-1,startingAd.mp4
--1,60,liveStream1
-0,-1,Ad2.mp4
--1,-1,liveStream1
-```
+
+    # sourceOffset, duration, localStreamName
+    0,-1,startingAd.mp4
+    -1,60,liveStream1
+    0,-1,Ad2.mp4
+    -1,-1,liveStream1
+
 
 The first line of the file (beginning with the comment delimiter '#') is a comment describing the format of each of the subsequent line. Each line after the first specifies a stream to play and can either be a live stream or a VOD/media file. The EMS will start with the first item in the list for playback and will move sequentially down the file. The `localStreamName` value specifies either a live stream or the path (relative to one of the EMS media directories) of a media file. The fields `sourceOffset` and `duration` specify what part of the source stream to play and for how long. The values for `sourceOffset` and `duration` are defined specifically as follows:
 
@@ -82,9 +78,7 @@ The first line of the file (beginning with the comment delimiter '#') is a comme
 
 Playing a playlist is very simple and can be done just like requesting a media file playback. From a flash player, simply request a stream with a URI of:
 
-``` 
-rtmp://IPofEMS/vod/myPlaylist.lst
-```
+    rtmp://IPofEMS/vod/myPlaylist.lst
 
 You will of course need to use an appropriate domain name or IP for your EMS server and use the name of your playlist file.
 
@@ -92,9 +86,7 @@ You will of course need to use an appropriate domain name or IP for your EMS ser
 
 **Playlists can only be directly played from Flash/RTMP clients** _._ However, playlists can be used by other types of clients/players via a simple redirect if needed. Simply issue a `pullStream` for the needed playlist:
 
-``` 
-pullStream uri=rtmp://localhost/vod/myPlaylist.lst localstreamname=livePlaylist
-```
+    pullStream uri=rtmp://localhost/vod/myPlaylist.lst localstreamname=livePlaylist
 
 Users may then request the stream livePlaylist which will be the normal play-out of the playlist, but can be accessed via any protocol supported by the EMS.
 
@@ -139,23 +131,17 @@ A common use case for transcoding involves the "translating"(down-scaling) of an
 
 The simplest way to accomplish this is to bring the original HD stream into the EMS. You can then issue a command similar to the following to create multiple streams with lower bitrates:
 
-``` 
-transcode source=Source1 groupName=group1 videoBitrates=100k,200k,300k destinations=stream100,stream200,stream300
-```
+    transcode source=Source1 groupName=group1 videoBitrates=100k,200k,300k destinations=stream100,stream200,stream300
 
 This command takes the "Source1" stream and creates 3 new streams within the EMS. Stream100 has a bit rate of 100kbps, stream200 has a bit rate of 200kbps and stream300 has a bit rate of 300kbps.
 
 You can then take each of those final streams and access them directly (IE: via RTMP or RTSP), or you can create an HLS group out of them to create an adaptive bitrate stream for iOS devices:
 
-``` 
-createhlsstream localstreamnames=stream100,stream200,stream300 targetfolder=/mywebroot/hls groupname=MyGroup playlisttype=rolling playlistLength=10 chunkLength=5
-```
+    createhlsstream localstreamnames=stream100,stream200,stream300 targetfolder=/mywebroot/hls groupname=MyGroup playlisttype=rolling playlistLength=10 chunkLength=5
 
 To playback this group of adaptive streams, you simply need to direct your HLS player to:
 
-``` 
-http://IPofEMS:8888/hls/MyGroup/playlist.m3u8
-```
+    http://IPofEMS:8888/hls/MyGroup/playlist.m3u8
 
 
 
@@ -163,9 +149,7 @@ http://IPofEMS:8888/hls/MyGroup/playlist.m3u8
 
 The EMS requires streams to be of type H.264/AAC, but that may not be the format your stream source is in. The EMS Transcoder can be used to convert your source stream into H.264/AAC:
 
-``` 
-transcode source=rtsp://IpOfStreamSource:554/StreamName groupName=group1 videoBitrates=5000k audioBitrates=800k destinations=StreamName
-```
+    transcode source=rtsp://IpOfStreamSource:554/StreamName groupName=group1 videoBitrates=5000k audioBitrates=800k destinations=StreamName
 
 This command pulls the source stream from its RTSP source directly, transcodes it, and passes it to the EMS as "StreamName". The _videoBitrates_ parameter **must** be specified when transcoding the video codec. The _audioBitrates_ parameter must be specified when transcoding the audio codec. If either the audio or video does not need to be transcoded, that parameter may be skipped. Here it is assumed that the source stream has a video bit rate of around 5Mbps and audio bitrate of around 800kbps.
 
@@ -175,9 +159,7 @@ This command pulls the source stream from its RTSP source directly, transcodes i
 
 The EMS Transcoder may be used to generate overlays on top of your videos. PNG or JPEG images with alpha layers (transparency) should be used. **The image must be at the same or smaller resolution (height and width) of the video you are overlaying**. The overlay file will be placed at the top-left corner of the video. To create the overlay, simply issue the following command:
 
-``` 
-transcode source=SourceStream groupName=group1 overlays=/path/to/overlay.png destinations=OverlayedStream
-```
+    transcode source=SourceStream groupName=group1 overlays=/path/to/overlay.png destinations=OverlayedStream
 
 
 
@@ -185,9 +167,7 @@ transcode source=SourceStream groupName=group1 overlays=/path/to/overlay.png des
 
 In some cases, you may want to crop a video and focus on just a portion of the video. The EMS Transcoder supports video cropping.
 
-``` 
-transcode source=SourceStream groupName=group1 croppings=0:0:50:50 destinations=CroppedStream
-```
+    transcode source=SourceStream groupName=group1 croppings=0:0:50:50 destinations=CroppedStream
 
 This creates a resultant stream containing only a square 50px by 50px from the top right corner of the video. The format for the _croppings_ parameter horizontalPosition:verticalPosition:width:height where horizontalPosition=0 at leftmost pixel, verticalPosition=0 at uppermost pixel.
 
@@ -201,17 +181,17 @@ The EMS can be enabled to look for a VOD file in another EMS instance if it does
 
 To enable this, the `vodRedirectRtmpIp` in the applications section of config.lua should have a value, the IP address of the other EMS from which the file can be found:
 
-``` 
-applications=
-{
-    rootDirectory="./",
+
+    applications=
     {
-        -- content removed for clarity
-        vodRedirectRtmpIp="IP ADDRESS",
-        -- content removed for clarity
-    },
-}
-```
+        rootDirectory="./",
+        {
+            -- content removed for clarity
+            vodRedirectRtmpIp="IP ADDRESS",
+            -- content removed for clarity
+        },
+    }
+
 
 By default, `vodRedirectRtmpIp` has no value, and if the file requested is not found, the connection will remain open waiting for a stream to exist. But if this feature is enabled, the EMS will get the value of `vodRedirectRtmpIp` which points to a second EMS instance that contains the requested file. The first EMS instance makes a `pullstream` request on the second EMS instance and the stream resulting from this is then used to serve the original client request.
 
@@ -233,27 +213,27 @@ EMS accepts metadata, as well as live RTMP streams with metadata incorporated. E
 
 The TCP and websockets acceptors are enabled by default but can be customized through the configuration file, config.lua.
 
-``` 
-acceptors =
-{
-    -- content removed for clarity
-    -- Inbound JSON Metadata TCP acceptor
+ 
+    acceptors =
     {
-        ip="0.0.0.0",
-        port=8110,
-        protocol="inboundJsonMeta",
-        streamname="v4l2"
+        -- content removed for clarity
+        -- Inbound JSON Metadata TCP acceptor
+        {
+            ip="0.0.0.0",
+            port=8110,
+            protocol="inboundJsonMeta",
+            streamname="v4l2"
+        },
+        -- WebSockets JSON Metadata
+        {
+            ip="0.0.0.0",
+            port=8210,
+            protocol="wsJsonMeta",
+            streamname="~0~0~0~"
+        },
+        -- content removed for clarity
     },
-    -- WebSockets JSON Metadata
-    {
-        ip="0.0.0.0",
-        port=8210,
-        protocol="wsJsonMeta",
-        streamname="~0~0~0~"
-    },
-    -- content removed for clarity
-},
-```
+
 
 On both acceptors, the `streamname` parameter is optional, default will match **all** incoming streams.
 
@@ -267,17 +247,13 @@ Once a metadata is received, the EMS Metadata Manager stores these metadata and 
 
 EMS offers two mechanisms to send out the metadata it currently have. The first, is to have the clients manually query and poll EMS for the metadata. This is done through the following command:
 
-``` 
-getMetadata localStreamName=test
-```
+    getMetadata localStreamName=test
 
 This command will return the corresponding metadata related to the stream "_test_".
 
 The second mechanism is to send out metadata updates through a TCP connection. This assumes that the other endpoint would be able to parse the incoming metadata in JSON format. This mechanism is enabled through the following command:
 
-``` 
-pushMetadata localStreamName=test ip=192.168.2.1 port=8110
-```
+    pushMetadata localStreamName=test ip=192.168.2.1 port=8110
 
 This will push updated metadata to a server which has an IP address of _192.168.2.1_ and is able to listen to incoming traffic on port _8110_.
 
