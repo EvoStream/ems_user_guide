@@ -302,8 +302,12 @@ To connect, a Web Socket "GET" call is used. Following is the "GET" URI format
 
 The _streamname_ is a local stream name of a stream that is pulled in the EMS.
 
-A sample HTML file with an FMP4 player, `evowsvideo.html`,  is provided. You may use this to try out the Web Socket FMP4 functionality. It is in the demo folder of your installation.
+A sample HTML file with an FMP4 player, `evowsvideo.html`,  is provided. You may use this to try out the Web Socket FMP4 functionality. 
 
+For convenience, a demo page is already available upon installation: `..\evo-webroot\demo\evowsvideo.html`
+Another option for playback is using `http://ers.evostream.com:5050/demo/evowsvideo.html`. 
+
+**Please see EMS How To Guide for more details.**
 
 
 ### A.	HTML5 Playback Browser Compatibility
