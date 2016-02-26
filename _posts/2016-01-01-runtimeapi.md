@@ -16,7 +16,7 @@ EvoStream provides a set of sample web services that leverage the API. These web
 
 ## Accessing the Run-Time API
 
-### A.	Manual Command Line
+### Manual Command Line
 
 This ASCII-based interface is often the first interface used by users. It can be accessed easily through the telnet application (available on all operating systems) or through common scripting languages.
 
@@ -62,7 +62,7 @@ releaseNumber: 1.7.0
 
 
 
-### B.	ASCII JSON CLI
+### ASCII JSON CLI
 
 Accessing the API over the same Telnet interface, but by using the port **1112** will yield the same results as Manual Command Line, but the results will all be returned formatted in JSON. This is very convenient for CGI and BASH scripting against the EMS API.
 
@@ -86,7 +86,7 @@ An example of a command request/response from a telnet session would be the foll
 
 
 
-### C.	HTTP
+### HTTP
 
 To access the API via the HTTP interface, simply make an HTTP request on the server using any browser with the command to be executed. By default, the port used for these HTTP requests is **7777**. The HTTP interface port can be changed in the main configuration file used by the EMS (config.lua).
 
@@ -155,7 +155,7 @@ Additional Event Notification destinations can be enabled (or disabled) by modif
 
 To enable Event Notifications you will need to Enable/Uncomment the _eventLogger_ section of the config.lua file. Comments in LUA are specified by either a `--` for a single line, or denoted by a `--[[` to start a comment block and a `]]--` to end a comment block. By default the eventLogger section is commented out using block style comments, so you will need to remove both the `--[[` and `]]--` strings. See the Configuration Files section for more information.
 
-### A.	Sinks
+### Sinks
 
 Sinks are defined as "a specific destination for events" and can be of two types: "file" and "RPC". File sinks simply write events to a file, as defined by the "filename" parameter. This works much like a system logger. Users can choose the format of the output between JSON, XML, W3C and text. JSON and XML will be formatted as JSON and XML respectively and each event will be written to a single line. This is done for ease of parsing. The W3C formatted file is compliant with the requirement of having space or tab-delimited columns. In addition, it has a header line that is commented out (#) that indicates the names of the columns. As with JSON and XML, each event is also written to a single line. The Text format writes to the event file in a way that is easy to read, where events are on multiple lines. The file sink is **off** by default, but can be turned on by creating the sink in the `config.lua` file.
 
