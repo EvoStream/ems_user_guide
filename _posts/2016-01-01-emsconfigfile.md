@@ -42,7 +42,7 @@ In the example above, configurations has a value of type object. An object is a 
 
 
 
-### A.	Contents
+**Contents**
 
     configuration = 
     {
@@ -101,7 +101,8 @@ The configuration file is loaded. Part of the loading process, is the verificati
 
 
 
-### B.	logAppenders
+
+### logAppenders
 
 
     logAppenders =
@@ -139,7 +140,8 @@ This section contains a list of log appenders. The entire collection of appender
 
 
 
-### C.	applications
+
+### applications
 
     applications =
     {
@@ -167,7 +169,8 @@ Following the _rootDirectory_, there is a collection of applications. Each appli
 
 
 
-### D.	application Definition
+
+### application Definition
 
     {
         appDir="./",
@@ -221,7 +224,8 @@ This is where the settings of an application are defined. We will present only t
 
 
 
-### E.	media
+
+### media
 
     {
     mediaStorage = {
@@ -248,7 +252,8 @@ This is where the settings of media folder defined. There are several uses of th
 
 
 
-### F.	acceptors
+
+### acceptors
 
 The "acceptors" block is found within the "applications" section named "evostreamms" in the configuration file. Each acceptor protocol used by applications is defined here. Some protocols may require additional parameters.
 
@@ -313,7 +318,8 @@ The following acceptor types are supported by EMS:
 
 
 
-### G.	autoHLS/HDS/DASH/MSS
+
+### autoHLS/HDS/DASH/MSS
 
 Within the "evostreamms" application section of the config.lua file, you will need to uncomment out the autoHLS group. (To uncomment it remove the "--[[" and "]]--" strings).
 
@@ -340,7 +346,8 @@ The `autoHLS/HDS/DASH/MSS` configuration group defines the parameter settings th
 
 
 
-### H.	authentication
+
+### authentication
 
 The "authentication" block is found within the "applications" section named "evostreamms" in the configuration file. Authentication settings for RTMP and RTSP protocols are defined separately. For RTMP, another file, `auth.xml`, is required to enable authentication. In addition, a users file, typically named `users.lua`, provides the user names and passwords.
 
@@ -382,7 +389,8 @@ Authentication is disabled if the "authentication" block in the "config.lua" fil
 
 
 
-### I.	eventLogger
+
+### eventLogger
 
 To enable Event Notifications you will need to enable/uncomment the eventLogger section of the config.lua file. Comments in LUA are specified by either a "--" for a single line, or denoted by a "--[[" to start a comment block and a "]]--" to end a comment block. By default the eventLogger section is commented out using the block style comments, so you will need to remove both the --[[and]]--strings.
 
@@ -498,6 +506,7 @@ All event types are listed below.
 | streamingSessionStarted | A streaming session has been started   |
 | streamingSessionEnded   | A streaming session has been completed |
 | mediaFileDownloaded     | A file download has been completed     |
+
 
 
 
@@ -668,7 +677,8 @@ If a `customData` parameter is not specified for a node, the value of the parent
 
 
 
-### J.	Transcoder
+
+### Transcoder
 
 Within the application section you can find the configuration for the EvoStream Transcoder. The default settings are generally going to be fine for all applications, but under certain circumstances they may need to be adjusted. The transcoder section looks like the following:
 
@@ -691,7 +701,8 @@ The `srcUriPrefix` tells the transcoder how to get the stream from the EMS. The 
 
 
 
-### K.	drm
+
+### drm
 
 Also in the application section of the config.lua file, the DRM section provides the configuration values for any DRM that needs to be activated. This section is commented out by default (wrapped in "--[[" and "]]--"). It must be un-commented-out before DRM will be activated.
 
