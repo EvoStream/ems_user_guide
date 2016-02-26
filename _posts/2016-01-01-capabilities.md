@@ -42,7 +42,7 @@ The only `pullStream` parameter which is NOT available within a VOD file is:
 
 ## Server-Side Playlists
 
-### A. Playlist File
+### Playlist File
 
 Playlist Files are simple text files which can be placed into one of the EvoStream Media Server's configured _media directories_ (as defined in the _config.lua_ file). Playlist Files allow users to specify a list of streams, both live and recorded, which are played back in sequence upon a client request.
 
@@ -74,7 +74,7 @@ The first line of the file (beginning with the comment delimiter '#') is a comme
 
 
 
-### B. Playlist Playback
+### Playlist Playback
 
 Playing a playlist is very simple and can be done just like requesting a media file playback. From a flash player, simply request a stream with a URI of:
 
@@ -92,7 +92,7 @@ Users may then request the stream livePlaylist which will be the normal play-out
 
 
 
-### C. Playlist Manipulation
+### Playlist Manipulation
 
 The EMS provides a simple mechanism for manipulating a playlist which is currently being viewed. The `insertPlaylistItem` API funcation allows users to insert live streams and video files into the playlist. These new items are added with a specific start time. When that start time is "now" the source of the stream will be immediately switched to the new playlist item. This leads to an entire collection of uses:
 
@@ -125,7 +125,7 @@ The EMS is packaged with a software encoder which provides a wide variety of add
 
 Transcoding is an inherently complicated process, given the huge variety of options available for compressing audio and video. The EMS provides a simple `transcode` API which makes the entire process very easy.
 
-#### Changing Stream Bitrates
+### Changing Stream Bitrates
 
 A common use case for transcoding involves the "translating"(down-scaling) of an HD stream into lower bitrates to support Adaptive Streaming protocols and smaller clients like Android and iOS devices.
 
@@ -145,7 +145,7 @@ To playback this group of adaptive streams, you simply need to direct your HLS p
 
 
 
-### A. Using Different Codecs
+### Using Different Codecs
 
 The EMS requires streams to be of type H.264/AAC, but that may not be the format your stream source is in. The EMS Transcoder can be used to convert your source stream into H.264/AAC:
 
@@ -155,7 +155,7 @@ This command pulls the source stream from its RTSP source directly, transcodes i
 
 
 
-### B. Video Overlays – Watermarking
+### Video Overlays – Watermarking
 
 The EMS Transcoder may be used to generate overlays on top of your videos. PNG or JPEG images with alpha layers (transparency) should be used. **The image must be at the same or smaller resolution (height and width) of the video you are overlaying**. The overlay file will be placed at the top-left corner of the video. To create the overlay, simply issue the following command:
 
@@ -163,7 +163,7 @@ The EMS Transcoder may be used to generate overlays on top of your videos. PNG o
 
 
 
-### C. Cropping
+### Cropping
 
 In some cases, you may want to crop a video and focus on just a portion of the video. The EMS Transcoder supports video cropping.
 
@@ -205,7 +205,7 @@ Metadata is data about data, or in this case, data about and/or related to strea
 
 
 
-### A. Ingestion and Aggregation
+### Ingestion and Aggregation
 
 ![CAPAB-FIG1]({{site.baseurl}}/assets/capab1.png)
 
@@ -241,7 +241,7 @@ Once a metadata is received, the EMS Metadata Manager stores these metadata and 
 
 
 
-### B. Metadata Delivery
+### Metadata Delivery
 
 ![CAPAB-FIG2]({{site.baseurl}}/assets/capab2.png)
 
