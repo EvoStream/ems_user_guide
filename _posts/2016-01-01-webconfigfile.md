@@ -6,13 +6,13 @@ categories: jekyll update
 permalink: webconfigfile
 ---
 
-## Web Server Configuration File (webconfig.lua)
+## webconfig.lua
 
 This file contains the EvoStream Web Server (EWS) configuration. The locations of various web server files/folders can be changed here. Various web server settings such as HTTP port, group name aliases, mime types, etc. can be modified here also.
 
 
 
-### Contents
+**Contents**
 
 - configuration – This is the entire structure for all configuration needed by the EWS Server.
   
@@ -296,6 +296,7 @@ Once enabled, new API calls using Proxy Authentication will be formatted as foll
 
 
 
+
 ## pushPullSetup.xml
 
 This file is used when reconnecting to the stream after restarting the EMS server and is automatically updated when a stream is created or deleted. If the file does not exist (or when it's deleted), it will be generated automatically by EMS.
@@ -328,12 +329,14 @@ This file is used when reconnecting to the stream after restarting the EMS serve
 
 
 
+
 ## connLimits.xml
 
 This file sets the allowed maximum number of connections to EMS.
 
     <?xml version="1.0" ?>
     <UINT32 name="">0</UINT32>
+
 
 
 
@@ -366,9 +369,11 @@ realms=
 
 
 
+
 ## pushPullSetup.xml
 
 This file is used when reconnecting to the stream after restarting the EMS server and is automatically updated when a stream is created or deleted. If the file does not exist (or when it's deleted), it will be generated automatically by EMS.
+
 
 
 
@@ -385,6 +390,7 @@ The configuration for the authentication. If true, the authentication declared i
 
 
 
+
 ## bandwidths.xml
 
 ``` 
@@ -396,6 +402,7 @@ The configuration for the authentication. If true, the authentication declared i
 ```
 
 If `enableCheckBandwidth` in config.lua is true, automatically EMS will read the bandwidths.xml file. EMS will limit all the incoming and outgoing stream dependent to the configured bandwidth range.
+
 
 
 
