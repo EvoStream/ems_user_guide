@@ -1,18 +1,18 @@
 ---
-title: Web Server Configuration File (webconfig.lua)
+title: Web Server Configuration File
 layout: post
 date:   2016-01-01 00:00:00 +0000
 categories: jekyll update
 permalink: webconfigfile
 ---
 
-## Web Server Configuration (webconfig.lua)
+## Web Server Configuration File (webconfig.lua)
 
 This file contains the EvoStream Web Server (EWS) configuration. The locations of various web server files/folders can be changed here. Various web server settings such as HTTP port, group name aliases, mime types, etc. can be modified here also.
 
 
 
-### A.	Contents
+### Contents
 
 - configuration – This is the entire structure for all configuration needed by the EWS Server.
   
@@ -44,7 +44,8 @@ When the web server starts, the following sequence of operations is performed:
 
 
 
-### B.	logAppenders
+
+### logAppenders
 
 ``` 
 logAppenders =
@@ -84,7 +85,8 @@ This section contains a list of log appenders. The entire collection of appender
 
 
 
-### C.	applications
+
+### applications
 
 ``` 
 applications =
@@ -110,7 +112,8 @@ Following the rootDirectory, there is webserver application. This application ha
 
 
 
-### D.	webServer Application
+
+### webServer Application
 
 This is where the settings of the webserver application are defined.
 
@@ -178,7 +181,8 @@ This is where the settings of the webserver application are defined.
 
 
 
-### E.	supportedMimeTypes
+
+### supportedMimeTypes
 
     supportedMimeTypes=
     {
@@ -213,7 +217,8 @@ This section is used to indicate file extension associations to mime types.
 
 
 
-### F.	includeResponseHeaders
+
+### includeResponseHeaders
 
     includeResponseHeaders=
     {
@@ -240,7 +245,8 @@ This section indicates additional headers to be included in the response.
 
 
 
-### G.	apiProxy
+
+### apiProxy
 
 Proxy authentication provides a way to secure the HTTP based EMS API. All API commands will first pass through the EWS, which will validate the provided username and password, and then pass the commands to the EMS for processing. API command return values will be routed back to the caller appropriately.
 
