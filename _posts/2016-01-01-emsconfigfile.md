@@ -1,12 +1,12 @@
 ---
-title: EMS Configuration File (config.lua)
+title: EMS Configuration File
 layout: post
 date:   2016-01-01 00:00:00 +0000
 categories: jekyll update
 permalink: emsconfigfile
 ---
 
-## config.lua
+## EMS Configuration File (config.lua)
 
 The EMS configuration file, config.lua, is a hierarchical data structure of assignments (key names with values). It is sent as a parameter when running the EvoStream server. The format is as follows:
 
@@ -42,7 +42,7 @@ In the example above, configurations has a value of type object. An object is a 
 
 
 
-**Contents**
+### Contents
 
     configuration = 
     {
