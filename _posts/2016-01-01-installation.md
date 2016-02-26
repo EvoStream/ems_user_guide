@@ -20,7 +20,7 @@ Licenses can be purchased from EvoStream directly, contact [sales@evostream.com]
 
 ## Install EMS
 
-### A. Installation for Linux (Package)
+### Installation for Linux (Package)
 
 EvoStream provides standard Linux installers for the EMS. The Linux EMS installer will install the following packages and software:
 
@@ -109,7 +109,7 @@ The following steps are used to install the EvoStream Media Server, and can be r
 
 
 
-### B. Installation for Linux (Archive)
+### Installation for Linux (Archive)
 
 You can install the EMS from a simple archive file (.tar.gz). The latest EMS Release can be found on the EvoStream website: [https://evostream.com/software-downloads/](https://evostream.com/software-downloads/).
 
@@ -119,7 +119,7 @@ Simply extract the EMS package. The location of the installation is not importan
 
 
 
-### C. Installation for Windows®
+### Installation for Windows®
 
 The latest EMS Release can be found on the EvoStream website: [https://evostream.com/software-downloads/](https://evostream.com/software-downloads/). Choose the most appropriate distribution for the Operating System that you are using. Once you have downloaded your distribution, simply extract the EMS package to a temporary folder.
 
@@ -129,7 +129,7 @@ Run **setup.exe** to install EMS.
 
 
 
-### D. Other Installers
+### Other Installers
 
 If you cannot find a suitable distribution, please contact us at [sales@evostream.com](mailto:sales@evostream.com), and we can possibly provide a custom compilation for the Operating System of your choice.
 
@@ -166,7 +166,7 @@ hard nproc 16384
 
 ## Distribution Content
 
-### A. Linux Package
+### Linux Package
 
 ``` 
 /
@@ -257,7 +257,7 @@ hard nproc 16384
 
 
 
-### B. Linux Archive
+### Linux Archive
 
 ``` 
 ./EvoStream Archive
@@ -337,7 +337,7 @@ hard nproc 16384
 
 
 
-### C. Windows Package
+### Windows Package
 
 ``` 
 C:\EvoStream
@@ -429,7 +429,7 @@ C:\EvoStream
 
 ## File Descriptions
 
-### A. Command Files
+### Command Files
 
 | File                | Description                              |
 | ------------------- | ---------------------------------------- |
@@ -447,7 +447,7 @@ C:\EvoStream
 
 
 
-### B. Configuration Files
+### Configuration Files
 
 | File                | Description                              |
 | ------------------- | ---------------------------------------- |
@@ -460,7 +460,7 @@ C:\EvoStream
 
 
 
-### C. Documentation
+### Documentation
 
 | File                               | Description                              |
 | ---------------------------------- | ---------------------------------------- |
@@ -471,7 +471,7 @@ C:\EvoStream
 
 
 
-### D. Miscellaneous
+### Miscellaneous
 
 | File                            | Description                              |
 | ------------------------------- | ---------------------------------------- |
