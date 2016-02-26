@@ -14,7 +14,7 @@ This section will dive into the specific capabilities of the EvoStream Media Ser
 
 The EMS is fully compatible with the RTMP protocol.  This means that it can receive streams from Adobe’s Flash Media Live Encoder (FMLE), Wirecast, Flash Applets, and many other sources.  It also enables any Flash or Adobe-Air based clients to play streams from the EMS.  Some examples of clients/players that use RTMP are FlowPlayer, JWPlayer and VLC.  Using RTMP, you can reach ANY Flash enabled web browser, which really means that you can reach any browser on Windows, Mac OSX and Linux.
 
-### A.	Ingesting RTMP
+### Ingesting RTMP
 
 There are several ways that the EMS can use RTMP as a stream source. The first method is to use theRuntime-API to pull a stream from some source. An example of a pullstream command is as follows:
 
@@ -34,7 +34,7 @@ The EMS accepts RTMP streams pushed both as PUBLISH and RECORD.  PUBLISH streams
 
 
 
-### B.	Outbound RTMP (Live and VOD)
+### Outbound RTMP (Live and VOD)
 
 Any source stream can be played back via RTMP.  Most often a user will be using a Flash based player which will make an RTMP request on the EMS.  To request an RTMP stream from the EMS, you need to use a URI formatted as follows:
 
@@ -51,7 +51,7 @@ The EMS can also PUSH streams towards another server or some other destination. 
 
 
 
-### C.	RTMPT
+### RTMPT
 
 RTMP via HTTP is supported by the EMS.  RTMPT can be leveraged in exactly the same way as RTMP. You will simply need to use “RTMPT” instead of “RTMP” in the various URIs and addresses. To enable the EMS to accept requests from RTMPT clients, you must create an Acceptor (listener) in the config/config.lua file that looks like the following:
 
@@ -65,7 +65,7 @@ RTMP via HTTP is supported by the EMS.  RTMPT can be leveraged in exactly the sa
 
 
 
-### D. RTMPS
+### RTMPS
 
 RTMP secured by SSL is supported by the EMS.  RTMPS can also be leveraged in exactly the same way as RTMP. In addition to using “RTMPS” instead of “RTMP” in the various URIs and addresses, you will also need to create and specify a certificate and key to be able to “Serve” RTMPS streams.  
 
@@ -87,7 +87,7 @@ Again, this setup is only necessary when serving these files (clients requesting
 
 
 
-### E.	RTMP Ingest Points
+### RTMP Ingest Points
 
 When Ingest Points are active, the EMS requires streams pushed to the EMS to provide a specific Target Stream Name.  This mechanism provides a robust way to allow trusted partners to easily push streams to your EMS server.
 
@@ -120,7 +120,7 @@ While RTCP channels are usually included in RTSP streams, they are not required 
 
 
 
-### A.	Ingesting RTSP
+### Ingesting RTSP
 
 There are several ways that the EMS can use RTSP as a stream source.  The first method is to use the Runtime-API to pull a stream from some source. An example of a `pullstream` command is as follows:
 
@@ -152,7 +152,7 @@ Please see the API Definition document for more information on API commands.
 
 
 
-### B. Outbound RTSP (Live and VOD)
+### Outbound RTSP (Live and VOD)
 
 Any source stream can be played back via RTSP.  Some common RTSP players are VLC, Android Devices and Quicktime.  To request an RTSP stream from the EMS, you need to use a URI formatted as follows:
 
@@ -310,7 +310,7 @@ Another option for playback is using `http://ers.evostream.com:5050/demo/evowsvi
 **Please see EMS How To Guide for more details.**
 
 
-### A.	HTML5 Playback Browser Compatibility
+### HTML5 Playback Browser Compatibility
 
 The following diagram shows the compatibility of various browsers with the EvoStream Websockets feature. This diagram is accurate as of November 2015. An updated version of this diagram is available here: [https://evostream.com/features/peer-to-peer](https://evostream.com/features/peer-to-peer)
 
@@ -318,7 +318,7 @@ The following diagram shows the compatibility of various browsers with the EvoSt
 
 
 
-### B.	Firefox Configuration Changes
+### Firefox Configuration Changes
 
 The following configuration changes must be made to Firefox before it will work with HTML5 playback and Peer to Peer:
 
@@ -357,7 +357,7 @@ To access this stream from an iOS device, you would use the following URL:
 
 
 
-### A.	DVR Playback
+### DVR Playback
 
 The EMS can support DVR functionality, allowing users to pause and resume playback of live streams.  This capability is already built into the HLS protocol support. Simply use an "`appending`" playlist type or a "`rolling`" playlist with a sufficiently large `playlistLength` value.
 
@@ -365,7 +365,7 @@ Users may also create time-shifted content or scheduled content by doing "local 
 
 
 
-### B.	HLS Resume
+### HLS Resume
 
 In cases of server or stream restarts, the HLS will resume in appending segments to previously created playlists. This can be enabled by using the `hlsResume` parameter when invoking the `createHLSStream` API.
 
@@ -377,7 +377,7 @@ Below is an example usage of the `createHLSStream` API command with the `hlsResu
 
 
 
-### C.	Audio Only HLS
+### Audio Only HLS
 
 The EMS supports audio-only HLS delivery.
 
@@ -390,7 +390,7 @@ An example `createHLSStream` command with the `audioOnly` parameter follows:
 
 
 
-### D.	VeriMatrix DRM
+### VeriMatrix DRM
 
 The EMS supports Verimatrix DRM for HLS streams. To enable Verimatrix support for your HLS streams you must enable and modify the "drm" section of the config.lua file. Please see the Configuration File section below for details on the "drm" section.
 
@@ -401,7 +401,7 @@ Once Verimatrix support is enabled in the config file, you can then conditionall
 
 
 
-### E.	AES Encryption
+### AES Encryption
 
 The EMS supports AES encryption for HLS streams. To use AES encryption you must specify two values in the createHLSStream API command:
 
@@ -414,7 +414,7 @@ Simply add the following parameter:
 
 
 
-### F.	Automatic HLS
+### Automatic HLS
 
 The EMS can be configured to automatically create an HLS stream for every new inbound stream. The details for the HLS creation are placed in the config.lua file instead of as parameters to the createHLSStream API call.
 
@@ -454,7 +454,7 @@ When HDS generated files are being served through a web server (e.g. Nginx, Apac
 
 
 
-### A.	Automatic HDS
+### Automatic HDS
 
 The EMS can be configured to automatically create an HDS stream for every new inbound stream. The details for the HDS creation are placed in the config.lua file instead of as parameters to the `createHDSStream` API call.
 
@@ -489,7 +489,7 @@ To access this stream from an HTML5 based player, you would use the following UR
 
 
 
-### A.	Automatic DASH
+### Automatic DASH
 
 The EMS can be configured to automatically create a DASH stream for every new inbound stream. The details for the DASH creation are placed in the `config.lua` file instead of as parameters to the `createDASHStream` API call.
 
@@ -527,7 +527,7 @@ To access this stream from a Silverlight player, you would use the following URL
 
 
 
-### A.	Automatic MSS
+### Automatic MSS
 
 The EMS can be configured to automatically create an MSS stream for every new inbound stream. The details for the MSS creation are placed in the config.lua file instead of as parameters to the `createMSSStream` API call.
 
@@ -542,7 +542,7 @@ To enable Automatic MSS a section in the `config.lua` file needs to be enabled a
 
 
 
-### B.	Working with MSS
+### Working with MSS
 
 The following instructions can be used to get your first MSS stream running. We are assuming Linux, but these steps will work for Windows as well, replacing the "targetFolder" parameter path below with one appropriate for your Windows distribution.
 
@@ -629,7 +629,7 @@ Each mediaStorage section can have the following parameters:
 
 
 
-### A.	Pseudo-VOD
+### Pseudo-VOD
 
 There may be times that you will want to generate a "live" stream out of a file. There also may be a time where you need to create an **MPEG-TS Stream** ( UDP broadcast/unicast/multicast) out of a file.
 
@@ -678,7 +678,7 @@ For production deployments of Peer To Peer you will want to host your own ERS, o
 
 
 
-### A.	Getting Started with Peer to Peer
+### Getting Started with Peer to Peer
 
 **Peer to Peer streaming uses the EvoStream HTML5 Streaming capabilities. It is recommended you also review the HTML5 Streaming section.**
 
@@ -705,7 +705,7 @@ You can follow these steps to get your first Peer to Peer session started. _Agai
 
 
 
-### B.	Peer To Peer Browser Compatibility
+### Peer To Peer Browser Compatibility
 
 The following diagram shows the compatibility of various browsers with the EvoStream Peer to Peer feature. This diagram is accurate as of November 2015. An updated version of this diagram is available here: [https://evostream.com/features/peer-to-peer](https://evostream.com/features/peer-to-peer)
 
@@ -713,7 +713,7 @@ The following diagram shows the compatibility of various browsers with the EvoSt
 
 
 
-### C.	Firefox Configuration Changes
+### Firefox Configuration Changes
 
 The following configuration changes must be made to Firefox before it will work with HTML5 playback and Peer to Peer:
 
