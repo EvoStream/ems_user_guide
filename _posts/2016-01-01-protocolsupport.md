@@ -206,13 +206,25 @@ MPEG-TS TCP streams can also be pushed into the server, but you must first tell 
 ``` 
 {
 	ip="0.0.0.0",
-	port=9999,
+	port=9998,
 	protocol="inboundTcpTs"
 },
 {
 	ip="0.0.0.0",
 	port=9999,
 	protocol="inboundUdpTs"
+},
+```
+
+For either of these configured acceptors, a "localstreamname" variable can be added to set the name of the stream that gets pushed into the acceptor.  This will limit the acceptor to just a single inbound stream (the TCP acceptor could accept many if needed) but it has the advantage of creating a known stream name.  
+
+For example, the following config will create a stream named "test1" when an MPEG-TS stream is pushed over TCP to port 9998:
+``` 
+{
+	ip="0.0.0.0",
+	port=9998,
+	localstreamname="test1",
+	protocol="inboundTcpTs"
 },
 ```
 
