@@ -176,8 +176,8 @@ This is where the settings of the webserver application are defined.
 |      hasGroupNameAliases       | boolean |    no     | Protects HTTP streaming variants (HLS, HDS, MSS, DASH, media files) from direct access |
 |         webRootFolder          | string  |    Yes    | The web root folder.                     |
 |      enableRangeRequests       | boolean |    No     | Enables range requests support (HTTP 206 Partial-Content) |
-|    mediFileDownloadTimeout     |         |           |                                          |
-|     includeResponseHeaders     | object  |    No     | Additional headers to be included in the response. |
+|    mediaFileDownloadTimeout    | number  |    Yes    | A media file download session is ended when there is no subsequent request after X seconds |
+|     includeResponseHeaders     | object  |    No     | Additional headers to be included in the response |
 
 
 
