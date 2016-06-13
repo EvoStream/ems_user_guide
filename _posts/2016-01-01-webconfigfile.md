@@ -120,7 +120,7 @@ Following the rootDirectory, there is webserver application. This application ha
 ### webServer Application
 
 This is where the settings of the webserver application are defined.
-```
+
     applications=
     {
         rootDirectory="./",
@@ -153,7 +153,7 @@ This is where the settings of the webserver application are defined.
                 --content removed for clarity
             }
         }
-```
+
 **webServer application Structure Table**
 
 |              Key               |  Type   | Mandatory | Description                              |
@@ -256,7 +256,7 @@ This section indicates additional headers to be included in the response.
 ### apiProxy
 
 Proxy authentication provides a way to secure the HTTP based EMS API. All API commands will first pass through the EWS, which will validate the provided username and password, and then pass the commands to the EMS for processing. API command return values will be routed back to the caller appropriately.
-```
+
     apiProxy=
     {
         authentication="basic", -- none, basic
@@ -266,7 +266,7 @@ Proxy authentication provides a way to secure the HTTP based EMS API. All API co
         userName="<username>",
         password="<password>",
     }
-```
+
 To enable Proxy Authentication you will open the _webconfig.lua_ config file and uncomment the "apiProxy" section near the bottom of the file.
 
 **webServer apiProxy Structure Table:**
@@ -300,7 +300,7 @@ Here's an example without parameters:
 
 ### authentication
 The authentication settings for the EMS Web UI. This is disabled for non-Amazon EMS packages. 
-```
+
     auth=
     {
       {
@@ -309,7 +309,7 @@ The authentication settings for the EMS Web UI. This is disabled for non-Amazon 
         enable=false,
       },
     },
-```
+
 To enable the EMS Web UI Authentication you will open the webconfig.lua config file and change "enable" value to "true".
 
 |      Key       |  Type  | Mandatory | Description                              |
@@ -321,12 +321,7 @@ To enable the EMS Web UI Authentication you will open the webconfig.lua config f
 If enabled, the Authentication window will open if the EMS Web UI is accessed.
 See http://docs.evostream.com/ems_web_ui_user_guide/authentication for more details.
 
-
-
-
-
-
-
+------
 
 ## pushPullSetup.xml
 
