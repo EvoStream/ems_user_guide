@@ -6,6 +6,7 @@ categories: jekyll update
 permalink: webconfigfile
 ---
 
+
 ## webconfig.lua
 
 This file contains the EvoStream Web Server (EWS) configuration. The locations of various web server files/folders can be changed here. Various web server settings such as HTTP port, group name aliases, mime types, etc. can be modified here also.
@@ -41,6 +42,7 @@ When the web server starts, the following sequence of operations is performed:
 
 - The `logAppenders` value is read. This is where all log appenders are configured and brought up to running state. Depending on the collection of your log appenders, you may (not) see further log messages.
 - The `applications` valueis taken into consideration. After this stage completes, all the applications are fully functional and the server is online and ready to do stuff.
+
 
 
 
@@ -86,6 +88,7 @@ This section contains a list of log appenders. The entire collection of appender
 
 
 
+
 ### applications
 
 ``` 
@@ -113,10 +116,11 @@ Following the rootDirectory, there is webserver application. This application ha
 
 
 
+
 ### webServer Application
 
 This is where the settings of the webserver application are defined.
-
+```
     applications=
     {
         rootDirectory="./",
@@ -149,7 +153,7 @@ This is where the settings of the webserver application are defined.
                 --content removed for clarity
             }
         }
-
+```
 **webServer application Structure Table**
 
 |              Key               |  Type   | Mandatory | Description                              |
@@ -182,8 +186,9 @@ This is where the settings of the webserver application are defined.
 
 
 
-### supportedMimeTypes
 
+### supportedMimeTypes
+```
     supportedMimeTypes=
     {
         -- non-streaming
@@ -203,7 +208,7 @@ This is where the settings of the webserver application are defined.
         },
         -- content removed for clarity
     }
-
+```
 This section is used to indicate file extension associations to mime types.
 
 **webServer supportedMime Types Structure Table:**
@@ -218,8 +223,9 @@ This section is used to indicate file extension associations to mime types.
 
 
 
-### includeResponseHeaders
 
+### includeResponseHeaders
+```
     includeResponseHeaders=
     {
         {
@@ -232,7 +238,7 @@ This section is used to indicate file extension associations to mime types.
             content="Evostream",
             override=false,
         },
-
+```
 This section indicates additional headers to be included in the response.
 
 **webServer includeResponseHeaders Structure Table:**
@@ -246,10 +252,11 @@ This section indicates additional headers to be included in the response.
 
 
 
+
 ### apiProxy
 
 Proxy authentication provides a way to secure the HTTP based EMS API. All API commands will first pass through the EWS, which will validate the provided username and password, and then pass the commands to the EMS for processing. API command return values will be routed back to the caller appropriately.
-
+```
     apiProxy=
     {
         authentication="basic", -- none, basic
@@ -258,23 +265,8 @@ Proxy authentication provides a way to secure the HTTP based EMS API. All API co
         port=7777,
         userName="<username>",
         password="<password>",
-        }users=
-        {
-            user1="password1",
-            user2="password2",
-        }
-        realms=
-        {
-            {
-                name="EVOSTREAM stream router",
-                method="Digest",
-                users={
-                "user1",
-                "user2",
-            },
-        },
     }
-
+```
 To enable Proxy Authentication you will open the _webconfig.lua_ config file and uncomment the "apiProxy" section near the bottom of the file.
 
 **webServer apiProxy Structure Table:**
@@ -301,6 +293,38 @@ Here's an example with parameters:
 Here's an example without parameters:
 
     http://user1:pass1@localhost:8888/apiproxy/version
+
+
+
+
+
+### authentication
+The authentication settings for the EMS Web UI. This is disabled for non-Amazon EMS packages. 
+```
+    auth=
+    {
+      {
+        domain="EMS_Web_UI", --the domain folder
+        digestFile="../evo-webroot/EMS_Web_UI/settings/passwords/.htdigest", --relative path to digest file
+        enable=false,
+      },
+    },
+```
+To enable the EMS Web UI Authentication you will open the webconfig.lua config file and change "enable" value to "true".
+
+|      Key       |  Type  | Mandatory | Description                              |
+| :------------: | :----: | :-------: | ---------------------------------------- |
+| domain | object |    yes    | The domain name or folder |
+|  digestFile  | object |    yes    | The relative path to digest file |
+|    enable     | boolean |    yes    | Tells if the authentication is enabled or disabled |
+
+If enabled, the Authentication window will open if the EMS Web UI is accessed.
+See http://docs.evostream.com/ems_web_ui_user_guide/authentication for more details.
+
+
+
+
+
 
 
 
@@ -337,12 +361,14 @@ This file is used when reconnecting to the stream after restarting the EMS serve
 
 
 
+
 ## connLimits.xml
 
 This file sets the allowed maximum number of connections to EMS.
 
     <?xml version="1.0" ?>
     <UINT32 name="">0</UINT32>
+
 
 
 
@@ -377,14 +403,6 @@ realms=
 
 
 
-## pushPullSetup.xml
-
-This file is used when reconnecting to the stream after restarting the EMS server and is automatically updated when a stream is created or deleted. If the file does not exist (or when it's deleted), it will be generated automatically by EMS.
-
-
-
-
-
 
 ## auth.xml
 
@@ -392,6 +410,7 @@ The configuration for the authentication. If true, the authentication declared i
 
     <?xml version="1.0" ?>
     <BOOL name="">true</BOOL>
+
 
 
 
@@ -409,6 +428,7 @@ The configuration for the authentication. If true, the authentication declared i
 ```
 
 If `enableCheckBandwidth` in config.lua is true, automatically EMS will read the bandwidths.xml file. EMS will limit all the incoming and outgoing stream dependent to the configured bandwidth range.
+
 
 
 
@@ -437,6 +457,7 @@ The EWS can allow or disallow access to files based upon defined white lists or 
 
 
 
+
 ## whitelist.txt
 
 The EWS can allow or disallow access to files based upon defined white lists or black lists. If a whitelist is specified, access will only be granted when the HTTP request originates from an IP on the whitelist.
@@ -459,6 +480,7 @@ The EWS can allow or disallow access to files based upon defined white lists or 
 
 
 
+
 ## ingestpoints.xml
 
 ``` 
@@ -466,6 +488,7 @@ The EWS can allow or disallow access to files based upon defined white lists or 
     <MAP isArray="false" name="">
 </MAP>
 ```
+
 
 
 
@@ -480,6 +503,7 @@ The EWS can allow or disallow access to files based upon defined white lists or 
     VQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UEBwwJU2FuIERpZWdv
     sjiyBNWZUq1pE3x0RnTpUA==
     -----END CERTIFICATE-----
+
 
 
 
