@@ -8,6 +8,8 @@ permalink: webconfigfile
 
 This file contains the EvoStream Web Server (EWS) configuration. The locations of various web server files/folders can be changed here. Various web server settings such as HTTP port, group name aliases, mime types, etc. can be modified here also.
 
+
+
 ## Contents
 
 - configuration – This is the entire structure for all configuration needed by the EWS Server.
@@ -35,6 +37,8 @@ When the web server starts, the following sequence of operations is performed:
 
 - The `logAppenders` value is read. This is where all log appenders are configured and brought up to running state. Depending on the collection of your log appenders, you may (not) see further log messages.
 - The `applications` valueis taken into consideration. After this stage completes, all the applications are fully functional and the server is online and ready to do stuff.
+
+
 
 ## logAppenders
 
@@ -72,6 +76,8 @@ This section contains a list of log appenders. The entire collection of appender
 |    fileLength     | number  |    no     | Buffer size of the file appender.        |
 |    singleLine     | boolean |    no     | If yes, multi-line log messages are merged into one line. |
 
+
+
 ## applications
 
 ``` 
@@ -93,6 +99,8 @@ This section is where all the applications inside the server are placed. It hold
 | rootDirectory | string |   True    | The folder containing applications subfolders. If this path begins with a "/" or "\" (depending on the OS), then is treated as an absolute path. Otherwise is treated as a path relative to the run-time directory (the place where you started the server). |
 
 Following the rootDirectory, there is webserver application. This application has its properties contained in an object. See details below.
+
+
 
 ## webServer Application
 
@@ -160,6 +168,8 @@ applications=
 |    mediFileDownloadTimeout     |         |           |                                          |
 |     includeResponseHeaders     | object  |    No     | Additional headers to be included in the response. |
 
+
+
 ## supportedMimeTypes
 
 ``` 
@@ -193,6 +203,8 @@ This section is used to indicate file extension associations to mime types.
 | streamType | string  |    no     | The type of HTTP stream.                 |
 | isManifest | boolean |    no     | Indicates if a file is a manifest used with the HTTP streaming variant. |
 
+
+
 ## includeResponseHeaders
 
 ``` 
@@ -217,6 +229,8 @@ This section indicates additional headers to be included in the response.
 |  header  | string  |    yes    | The response header.                     |
 | content  | string  |    yes    | The value particular to the response header. |
 | override | boolean |    No     | Indicates if the header should be overridden if the existing header has this already included. |
+
+
 
 ## apiProxy
 
@@ -316,6 +330,8 @@ This file is used when reconnecting to the stream after restarting the EMS serve
     </MAP>
 ```
 
+
+
 ## connLimits.xml
 
 This file sets the allowed maximum number of connections to EMS.
@@ -324,6 +340,8 @@ This file sets the allowed maximum number of connections to EMS.
 <?xml version="1.0" ?>
 <UINT32 name="">0</UINT32>
 ```
+
+
 
 ## users.lua (Authentication)
 
@@ -348,9 +366,7 @@ realms=
 }
 ```
 
-## pushPullSetup.xml
 
-This file is used when reconnecting to the stream after restarting the EMS server and is automatically updated when a stream is created or deleted. If the file does not exist (or when it's deleted), it will be generated automatically by EMS.
 
 ## auth.xml
 
@@ -360,6 +376,8 @@ The configuration for the authentication. If true, the authentication declared i
 <?xml version="1.0" ?>
 <BOOL name="">true</BOOL>
 ```
+
+
 
 ## bandwidths.xml
 
@@ -372,6 +390,8 @@ The configuration for the authentication. If true, the authentication declared i
 ```
 
 If enableCheckBandwidth in config.lua is true, automatically EMS will read the bandwidths.xml file. EMS will limit all the incoming and outgoing stream dependent to the configured bandwidth range.
+
+
 
 ## blacklist.txt
 
@@ -391,6 +411,8 @@ The EWS can allow or disallow access to files based upon defined white lists or 
     blacklistFile="..\\config\\blacklist.txt",
   ```
 
+
+
 ## whitelist.txt
 
 The EWS can allow or disallow access to files based upon defined white lists or black lists. If a whitelist is specified, access will only be granted when the HTTP request originates from an IP on the whitelist.
@@ -409,6 +431,8 @@ The EWS can allow or disallow access to files based upon defined white lists or 
     blacklistFile="..\\config\\blacklist.txt",
   ```
 
+
+
 ## ingestpoints.xml
 
 ``` 
@@ -416,6 +440,8 @@ The EWS can allow or disallow access to files based upon defined white lists or 
     <MAP isArray="false" name="">
 </MAP>
 ```
+
+
 
 ## server.cert
 
@@ -428,6 +454,8 @@ VQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UEBwwJU2FuIERpZWdv
 sjiyBNWZUq1pE3x0RnTpUA==
 -----END CERTIFICATE-----
 ```
+
+
 
 ## server.key
 
