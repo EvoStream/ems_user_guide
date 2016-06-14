@@ -35,12 +35,15 @@ Administrative privileges are required. This can be accomplished in many ways.
 
 If the sudo utility is available:
 
-    $ su –
-
+``` 
+$ su –
+```
 
 If the sudo utility is not available:
 
-    $ sudo su –
+``` 
+$ sudo su –
+```
 
 **Note:**
 
@@ -54,20 +57,27 @@ The prompt changes from `$` to `#` when administrative privileges are enabled.
 
 - Debian based Linux distributions (Ubuntu or Debian)
   
-          # wget http://apt.evostream.com/installkeys.sh -O /tmp/installkeys.sh
+  ``` 
+      # wget http://apt.evostream.com/installkeys.sh -O /tmp/installkeys.sh
+  ```
   
 - RedHat based Linux distributions (CentOS, Fedora, RHEL)
   
-          # curl http://yum.evostream.com/installkeys.sh -o /tmp/installkeys.sh
-  
+  ``` 
+      # curl http://yum.evostream.com/installkeys.sh -o /tmp/installkeys.sh
+  ```
 
 2\. Execute the script to install the EvoStream software repository and keys
 
-         # sh /tmp/installkeys.sh
+``` 
+     # sh /tmp/installkeys.sh
+```
 
 - If successful, the following message should be printed on the console:
   
-          "EvoStream keys installed successfully"
+  ``` 
+      "EvoStream keys installed successfully"
+  ```
 
 At this stage, the EvoStream software repository and keys are successfully installed and you can install packages from it.
 
@@ -79,33 +89,47 @@ The following steps are used to install the EvoStream Media Server, and can be r
 
 - Debian based Linux distributions (Ubuntu or Debian)
   
-          # apt-get install evostream-mediaserver
-
+  ``` 
+      # apt-get install evostream-mediaserver
+  ```
+  
 - RedHat based Linux distributions (CentOS, Fedora, RHEL)
   
-          # yum install evostream-mediaserver
+  ``` 
+      # yum install evostream-mediaserver
+  ```
 
 4\. Install the license file. Copy the License.lic file into `/etc/evostream` folder
 
-         # cp /path/to/License.lic /etc/evostream/License.lic
+``` 
+     # cp /path/to/License.lic /etc/evostream/License.lic
+```
 
 5\. Run EvoStream Media Server
 
 - To start EMS in console mode
   
-          # service evostreamms start_console
+  ``` 
+      # service evostreamms start_console
+  ```
   
 - To start EMS as a daemon background process
   
-          # service evostreamms start
-
+  ``` 
+      # service evostreamms start
+  ```
+  
 - To restart EMS (will restart as daemon)
   
-          # service evostreamms restart
+  ``` 
+      # service evostreamms restart
+  ```
   
 - To stop EMS
   
-          # service evostreamms stop
+  ``` 
+      # service evostreamms stop
+  ```
 
 
 
@@ -162,8 +186,6 @@ hard nproc 16384
 
 ------
 
-
-
 ## Distribution Content
 
 ### A. Linux Package
@@ -193,19 +215,7 @@ hard nproc 16384
 │       │       └── [30 transcode preset files]
 │       └── doc
 │           └── evostreamms
-│               ├── API Definition.pdf
-│               ├── copyright
-│               ├── EMS How Tos.pdf
-│               ├── EMS User Guide.pdf
-│               ├── EvoStream Media Server EULA v2.pdf
-│               ├── Quick_Start_Guide.txt
-│               └── version
-│                   ├── BUILD_DATE
-│                   ├── BUILD_NUMBER
-│                   ├── CODE_NAME
-│                   ├── OS_NAME
-│                   ├── OS_VERSION
-│                   └── RELEASE_NUMBER
+│               └──  EvoStream Media Server EULA v2.pdf
 └── var
     ├── evostreamms
     │   ├── media
@@ -232,20 +242,23 @@ hard nproc 16384
     │   │   ├── phpacct
     │   │   ├── settings
     │   │   ├── swf
+    │   │   ├── evo.png
     │   │   ├── evostream_copyright.txt
     │   │   ├── index.php
     │   │   ├── install_license.php
     │   │   ├── license.txt
+    │   │   ├── loading.gif
     │   │   ├── navbar.php
+    │   │   ├── README.txt
     │   │   ├── README[Enable_Login_Authentication].txt
     │   │   └── style.css
     │   ├── evowebservices
     │   │   ├── config
     │   │   ├── core
     │   │   ├── plugins
-    │   │   ├── EMS_Web_Services_User_Guide.pdf
     │   │   ├── evostream_copyright.txt
-    │   │   └── evowebservices.php
+    │   │   ├── evowebservices.php
+    │   │   └── README.txt
     │   ├── clientaccesspolicy.xml
     │   └── crossdomaim.xml
     ├── log
@@ -287,20 +300,9 @@ hard nproc 16384
   ├── demo
   │   ├── base64.js
   │   └── emsdemo.html
-  ├── documents
-  │   ├── API Definition.pdf
-  │   ├── EMS How Tos.pdf
-  │   ├── EMS User Guide.pdf
-  │   ├── Evostream Media Server EULA v2.pdf
-  │   ├── Quick_Start_Guide.txt
-  │   └── ReadMe.txt
   ├── evo-avconv-presets
   │   └── [30 transcode preset files]
-  ├── logs
-  ├── media
-  ├── BUILD_DATE
-  ├── README.txt
-  └── evo-webroot
+  ├── evo-webroot
       ├── demo
       │   ├── css
       │   ├── evo.png
@@ -317,11 +319,14 @@ hard nproc 16384
       │   ├── phpacct
       │   ├── settings
       │   ├── swf
+      │   ├── evo.png
       │   ├── evostream_copyright.txt
       │   ├── index.php
       │   ├── install_license.php
+      │   ├── loading.gif
       │   ├── license.txt
       │   ├── navbar.php
+      │   ├── README.txt
       │   ├── README[Enable_Login_Authentication].txt
       │   └── style.css
       ├── evowebservices
@@ -333,6 +338,11 @@ hard nproc 16384
       │   └── evowebservices.php
       ├── clientaccesspolicy.xml
       └── crossdomain.xml
+  ├── logs
+  ├── media
+  ├── BUILD_DATE
+  ├── Evostream Media Server EULA v2.pdf
+  └── README.txt
 ```
 
 
@@ -357,38 +367,10 @@ C:\EvoStream
    ├── demo
    │   ├── base64.js
    │   └── emsdemo.html
-   ├── documents
-   │   ├── API Definition.pdf
-   │   ├── EMS How Tos.pdf
-   │   ├── EMS User Guide.pdf
-   │   ├── Evostream Media Server EULA v2.pdf
-   │   ├── Quick_Start_Guide.txt
-   │   └── ReadMe.txt
    ├── evo-avconv-presets
    │   └── [30 transcode preset files]
    ├── evo-phpengine
-   ├── logs
-   ├── media
-   ├── services
-   ├── emsTranscoder.bat
-   ├── evo-avconv.exe
-   ├── evo-mp4writer.exe
-   ├── evostreamms.exe
-   ├── evo-webserver.exe
-   ├── libgcrypt-20.dll
-   ├── libgmp-10.dll
-   ├── libgnutls-28.dll
-   ├── libgpg-error6-0.dll
-   ├── libhogweed-2-5.dll
-   ├── libiconv-2.dll
-   ├── libmicrohttpd-10.dll
-   ├── libiconv-2.dll
-   ├── libnettle-4-7.dll
-   ├── run_console_ems.bat
-   ├── tests.exe
-   ├── unins000.dat
-   ├── unins000.exe
-   └── evo-webroot
+   ├── evo-webroot
        ├── demo
        │   ├── css
        │   ├── evo.png
@@ -405,27 +387,51 @@ C:\EvoStream
        │   ├── phpacct
        │   ├── settings
        │   ├── swf
+	   │   ├── evo.png
        │   ├── evostream_copyright.txt
        │   ├── index.php
        │   ├── install_license.php
        │   ├── license.txt
+       │   ├── loading.gif
        │   ├── navbar.php
+       │   ├── README.txt
        │   ├── README[Enable_Login_Authentication].txt
        │   └── style.css
        ├── evowebservices
        │   ├── config
        │   ├── core
        │   ├── plugins
-       │   ├── EMS_Web_Services_User_Guide.pdf
        │   ├── evostream_copyright.txt
-       │   └── evowebservices.php
+       │   ├── evowebservices.php   
+       │   └── README.txt
        ├── clientaccesspolicy.xml
        └── crossdomain.xml
+   ├── logs
+   ├── media
+   ├── services
+   ├── emsTranscoder.bat
+   ├── evo-avconv.exe
+   ├── evo-mp4writer.exe
+   ├── Evostream Media Server EULA v2.pdf
+   ├── evostreamms.exe
+   ├── evo-webserver.exe
+   ├── libgcrypt-20.dll
+   ├── libgmp-10.dll
+   ├── libgnutls-28.dll
+   ├── libgpg-error6-0.dll
+   ├── libhogweed-2-5.dll
+   ├── libiconv-2.dll
+   ├── libmicrohttpd-12.dll
+   ├── libnettle-4-7.dll
+   ├── README.txt
+   ├── run_console_ems.bat
+   ├── tests.exe
+   ├── unins000.dat
+   ├── unins000.exe
+   └── zlib1.dll
 ```
 
 ------
-
-
 
 ## File Descriptions
 
@@ -443,9 +449,7 @@ C:\EvoStream
 | remove.bat          | Script to remove the **Windows** service for the EMS and remove the relevant Windows Registry entries. This must be run with Administrative privileges. |
 | start.bat           | Script to start the EMS **Windows** service. This script will not work if create.bat has not been run first. |
 | stop.bat            | Script to stop the EMS **Windows** Service. |
-| Srvany.exe          | This is a binary provided by Microsoft and is used to create the Windows Service. |
-
-
+| srvany.exe          | This is a binary provided by Microsoft and is used to create the Windows Service. |
 
 ### B. Configuration Files
 
@@ -458,18 +462,11 @@ C:\EvoStream
 | connlimits.xml      | Defines the maximum number of concurrent connections you want the EMS to accept |
 | bandwidthlimits.xml | Defines the maximum amount of bandwidth you want the server to be able to use (set the instantaneous bandwidth cap). |
 
-
-
 ### C. Documentation
 
 | File                               | Description                              |
 | ---------------------------------- | ---------------------------------------- |
-| EMS User Guide.pdf                 | This Document                            |
-| API Definition.pdf                 | Provides descriptions for all of the EMS's Runtime APIs and Event Notifications |
-| EMS How Tos.pdf                    | Provides example commands for performing basic tasks with the EMS |
 | EvoStream Media Server EULA v2.pdf | The End User License Agreement for the EMS |
-
-
 
 ### D. Miscellaneous
 
@@ -479,3 +476,4 @@ C:\EvoStream
 | media/                          | The media directory is the default location for video-on-demand files. This is where the EMS will look when VOD requests are made. This default location can be changed in the EMS main configuration file, which is typically `config/config.lua` |
 | logs/                           | This is the directory that EMS will write its logs to. This default location can be changed in the EMS main configuration file, which is typically `config/config.lua` |
 | License.lic                     | This is the license file required to run the EMS. It can be placed in the `config/` , `bin/` , or `/etc/evostreamms/` folders, or in whatever folder the evostreamms binary resides. |
+| evowebservices.log              | This is an auto-generated file which contains the logs for the evowebservices. The file will be placed in `../evo-webroot/evowebservices` |
