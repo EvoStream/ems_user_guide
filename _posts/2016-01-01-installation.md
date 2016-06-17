@@ -264,8 +264,7 @@ hard nproc 16384
     ├── log
     │   └── evostreamms
     └── run
-        ├── evostreamms
-        └── evostreamms.pid
+        └── evostreamms
 ```
 
 
