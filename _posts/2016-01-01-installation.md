@@ -193,12 +193,9 @@ hard nproc 16384
 │       │       └── [30 transcode preset files]
 │       └── doc
 │           └── evostreamms
-│               ├── API Definition.pdf
 │               ├── copyright
-│               ├── EMS How Tos.pdf
-│               ├── EMS User Guide.pdf
 │               ├── EvoStream Media Server EULA v2.pdf
-│               ├── Quick_Start_Guide.txt
+│               ├── README.txt
 │               └── version
 │                   ├── BUILD_DATE
 │                   ├── BUILD_NUMBER
@@ -232,27 +229,29 @@ hard nproc 16384
     │   │   ├── phpacct
     │   │   ├── settings
     │   │   ├── swf
+    │   │   ├── evo.png
     │   │   ├── evostream_copyright.txt
     │   │   ├── index.php
     │   │   ├── install_license.php
     │   │   ├── license.txt
+    │   │   ├── loading.gif
     │   │   ├── navbar.php
+    │   │   ├── README.txt
     │   │   ├── README[Enable_Login_Authentication].txt
     │   │   └── style.css
     │   ├── evowebservices
     │   │   ├── config
     │   │   ├── core
     │   │   ├── plugins
-    │   │   ├── EMS_Web_Services_User_Guide.pdf
     │   │   ├── evostream_copyright.txt
-    │   │   └── evowebservices.php
+    │   │   ├── evowebservices.php
+    │   │   └── README.txt
     │   ├── clientaccesspolicy.xml
     │   └── crossdomaim.xml
     ├── log
     │   └── evostreamms
     └── run
-        ├── evostreamms
-        └── evostreamms.pid
+        └── evostreamms
 ```
 
 
@@ -287,20 +286,9 @@ hard nproc 16384
   ├── demo
   │   ├── base64.js
   │   └── emsdemo.html
-  ├── documents
-  │   ├── API Definition.pdf
-  │   ├── EMS How Tos.pdf
-  │   ├── EMS User Guide.pdf
-  │   ├── Evostream Media Server EULA v2.pdf
-  │   ├── Quick_Start_Guide.txt
-  │   └── ReadMe.txt
   ├── evo-avconv-presets
   │   └── [30 transcode preset files]
-  ├── logs
-  ├── media
-  ├── BUILD_DATE
-  ├── README.txt
-  └── evo-webroot
+  ├── evo-webroot
       ├── demo
       │   ├── css
       │   ├── evo.png
@@ -317,11 +305,14 @@ hard nproc 16384
       │   ├── phpacct
       │   ├── settings
       │   ├── swf
+      │   ├── evo.png
       │   ├── evostream_copyright.txt
       │   ├── index.php
       │   ├── install_license.php
+      │   ├── loading.gif
       │   ├── license.txt
       │   ├── navbar.php
+      │   ├── README.txt
       │   ├── README[Enable_Login_Authentication].txt
       │   └── style.css
       ├── evowebservices
@@ -333,6 +324,11 @@ hard nproc 16384
       │   └── evowebservices.php
       ├── clientaccesspolicy.xml
       └── crossdomain.xml
+  ├── logs
+  ├── media
+  ├── BUILD_DATE
+  ├── Evostream Media Server EULA v2.pdf
+  └── README.txt
 ```
 
 
@@ -357,38 +353,10 @@ C:\EvoStream
    ├── demo
    │   ├── base64.js
    │   └── emsdemo.html
-   ├── documents
-   │   ├── API Definition.pdf
-   │   ├── EMS How Tos.pdf
-   │   ├── EMS User Guide.pdf
-   │   ├── Evostream Media Server EULA v2.pdf
-   │   ├── Quick_Start_Guide.txt
-   │   └── ReadMe.txt
    ├── evo-avconv-presets
    │   └── [30 transcode preset files]
    ├── evo-phpengine
-   ├── logs
-   ├── media
-   ├── services
-   ├── emsTranscoder.bat
-   ├── evo-avconv.exe
-   ├── evo-mp4writer.exe
-   ├── evostreamms.exe
-   ├── evo-webserver.exe
-   ├── libgcrypt-20.dll
-   ├── libgmp-10.dll
-   ├── libgnutls-28.dll
-   ├── libgpg-error6-0.dll
-   ├── libhogweed-2-5.dll
-   ├── libiconv-2.dll
-   ├── libmicrohttpd-10.dll
-   ├── libiconv-2.dll
-   ├── libnettle-4-7.dll
-   ├── run_console_ems.bat
-   ├── tests.exe
-   ├── unins000.dat
-   ├── unins000.exe
-   └── evo-webroot
+   ├── evo-webroot
        ├── demo
        │   ├── css
        │   ├── evo.png
@@ -405,22 +373,48 @@ C:\EvoStream
        │   ├── phpacct
        │   ├── settings
        │   ├── swf
+	   │   ├── evo.png
        │   ├── evostream_copyright.txt
        │   ├── index.php
        │   ├── install_license.php
        │   ├── license.txt
+       │   ├── loading.gif
        │   ├── navbar.php
+       │   ├── README.txt
        │   ├── README[Enable_Login_Authentication].txt
        │   └── style.css
        ├── evowebservices
        │   ├── config
        │   ├── core
        │   ├── plugins
-       │   ├── EMS_Web_Services_User_Guide.pdf
        │   ├── evostream_copyright.txt
-       │   └── evowebservices.php
+       │   ├── evowebservices.php   
+       │   └── README.txt
        ├── clientaccesspolicy.xml
        └── crossdomain.xml
+   ├── logs
+   ├── media
+   ├── services
+   ├── emsTranscoder.bat
+   ├── evo-avconv.exe
+   ├── evo-mp4writer.exe
+   ├── Evostream Media Server EULA v2.pdf
+   ├── evostreamms.exe
+   ├── evo-webserver.exe
+   ├── libgcrypt-20.dll
+   ├── libgmp-10.dll
+   ├── libgnutls-28.dll
+   ├── libgpg-error6-0.dll
+   ├── libhogweed-2-5.dll
+   ├── libiconv-2.dll
+   ├── libmicrohttpd-12.dll
+   ├── libnettle-4-7.dll
+   ├── README.txt
+   ├── run_console_ems.bat
+   ├── tests.exe
+   ├── unins000.dat
+   ├── unins000.exe
+   └── zlib1.dll
 ```
 
 ------
@@ -464,9 +458,6 @@ C:\EvoStream
 
 | File                               | Description                              |
 | ---------------------------------- | ---------------------------------------- |
-| EMS User Guide.pdf                 | This Document                            |
-| API Definition.pdf                 | Provides descriptions for all of the EMS's Runtime APIs and Event Notifications |
-| EMS How Tos.pdf                    | Provides example commands for performing basic tasks with the EMS |
 | EvoStream Media Server EULA v2.pdf | The End User License Agreement for the EMS |
 
 
@@ -479,3 +470,4 @@ C:\EvoStream
 | media/                          | The media directory is the default location for video-on-demand files. This is where the EMS will look when VOD requests are made. This default location can be changed in the EMS main configuration file, which is typically `config/config.lua` |
 | logs/                           | This is the directory that EMS will write its logs to. This default location can be changed in the EMS main configuration file, which is typically `config/config.lua` |
 | License.lic                     | This is the license file required to run the EMS. It can be placed in the `config/` , `bin/` , or `/etc/evostreamms/` folders, or in whatever folder the evostreamms binary resides. |
+| evowebservices.log            | This is an auto-generated file which contains the logs for the evowebservices. The file will be placed in `../evo-webroot/evowebservices`. |
