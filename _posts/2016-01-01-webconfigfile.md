@@ -513,3 +513,7 @@ The EWS can allow or disallow access to files based upon defined white lists or 
     vZxkUbeVxJtfdoS0OIHf+xiugYBY33G3odSL7ZISkHT5VeDbXtBJ2kaYcMXUTlh3
     GVOnuh7pX19wgj2VZv2Mz4HvKggPvXlS/WKtPFYsqsw=
     -----END RSA PRIVATE KEY-----
+
+
+Note:
+Scripts are available for creating certificates and keys for EMS. Please refer to our GitHub files [here](https://github.com/EvoStream/evostream_addons/tree/master/certificates_and_keys) for details.

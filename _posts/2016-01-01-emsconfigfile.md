@@ -271,10 +271,10 @@ The following acceptor types are supported by EMS:
 
 **acceptor Protocol Table:**
 
-| Acceptor Protocol  | Typical IP | Typical Port |       Additional Parameters (Note)       | Protocol Stack (Tags) |
+| Acceptor Protocol  | Typical IP | Typical Port |    Additional Parameters (see Note 1)    | Protocol Stack (Tags) |
 | :----------------: | :--------: | :----------: | :--------------------------------------: | :-------------------: |
 |    inboundRtmp     |  0.0.0.0   |     1935     |                                          |        TCP+IR         |
-|    inboundRtmps    |  0.0.0.0   |     8081     | sslKey (path to SSL key file),sslCert (path to SSL certificate file) |     TCP+ISSL+IRS      |
+|    inboundRtmps    |  0.0.0.0   |     8081     | sslKey (path to SSL key file), sslCert (path to SSL certificate file) (see Note 2) |     TCP+ISSL+IRS      |
 |    inboundRtmpt    |  0.0.0.0   |     8080     |                                          |       TCP+IH4R        |
 |    inboundTcpTs    |  0.0.0.0   |     9999     |                                          |        TCP+ITS        |
 |    inboundUdpTs    |  0.0.0.0   |     9999     |                                          |        UDP+ITS        |
@@ -325,7 +325,6 @@ Within the "evostreamms" application section of the config.lua file, you will ne
 
 ``` 
 autoDASH=
-
     targetFolder= "..\\evo-webroot",
 },
 autoHLS=
@@ -383,11 +382,11 @@ authentication=
 },
 ```
 
-**Note:**
+**Notes:**
 
-Authentication is disabled if the "authentication" block in the "config.lua" file is missing or incomplete. For RTMP protocol, authentication is disabled if the "auth.xml" file is missing or contains a "false" setting. For RTSP protocol, authentication is disabled if "authenticatePlay" in the "rtsp" block is omitted or set to "false".
+1. Authentication is disabled if the "authentication" block in the "config.lua" file is missing or incomplete. For RTMP protocol, authentication is disabled if the "auth.xml" file is missing or contains a "false" setting. For RTSP protocol, authentication is disabled if "authenticatePlay" in the "rtsp" block is omitted or set to "false".
 
-
+2. Scripts are available for creating certificates and keys for EMS. Please refer to our GitHub files [here](https://github.com/EvoStream/evostream_addons/tree/master/certificates_and_keys) for details.
 
 
 ### eventLogger
