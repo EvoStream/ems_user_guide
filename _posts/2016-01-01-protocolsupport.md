@@ -58,7 +58,7 @@ RTMP via HTTP is supported by the EMS.  RTMPT can be leveraged in exactly the sa
 ``` 
 {
       ip="0.0.0.0",                                  
-      port=8080,                                     
+      port=8081,                                     
       protocol="inboundRtmpt"
 },
 ```
@@ -74,7 +74,7 @@ You must create a signed certificate file using a library like OpenSSL (*.crt) a
 ``` 
 {
       ip="0.0.0.0",                                  
-      port=8081,                                     
+      port=8082,                                     
       protocol="inboundRtmps",                       
       sslKey="server.key",                           
       sslCert="server.crt"                           
