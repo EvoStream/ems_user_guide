@@ -185,7 +185,7 @@ Only MP4 files can be used for RTSP VOD playback.  TS and FLV files cannot be us
 
 The EMS can also PUSH streams towards another server or some other destination.  The `pushStream` Runtime-API function is used to do this. An example of the pushStream API is as follows:
 
-    pushStream uri=rtsp://192.168.1.5:554/live/ localStreamName=MyTestStream targetStreamName=PushedStreamName
+    pushStream uri=rtsp://192.168.1.5:5554/ localStreamName=MyTestStream targetStreamName=PushedStreamName
 
 **Please see the API Definition document for more information on API commands.**
 
