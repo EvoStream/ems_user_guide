@@ -156,7 +156,7 @@ Please see the API Definition document for more information on API commands.
 
 Any source stream can be played back via RTSP.  Some common RTSP players are VLC, Android Devices and Quicktime.  To request an RTSP stream from the EMS, you need to use a URI formatted as follows:
 
-    rtsp://[username[:password]@]IP[:port]/[ts|vod|vodts]/<LocalStreamName or MP4 file name>
+    rtsp://[username[:password]@]IP[:port]/[ts|vod|vodts]/<localStreamName or MP4 file name>
 
 Some examples of RTSP requests are as follows:
 
@@ -185,7 +185,7 @@ Only MP4 files can be used for RTSP VOD playback.  TS and FLV files cannot be us
 
 The EMS can also PUSH streams towards another server or some other destination.  The `pushStream` Runtime-API function is used to do this. An example of the pushStream API is as follows:
 
-    pushStream uri=rtsp://192.168.1.5:5554/ localStreamName=MyTestStream targetStreamName=PushedStreamName
+    pushStream uri=rtsp://192.168.1.5:5544 localStreamName=MyTestStream targetStreamName=PushedStreamName
 
 **Please see the API Definition document for more information on API commands.**
 
