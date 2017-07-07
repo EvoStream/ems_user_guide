@@ -35,7 +35,7 @@ Proxy authentication provides a way to secure the HTTP based EMS API. All API co
 
 To enable Proxy Authentication you will open the webconfig.lua config file and uncomment the `apiProxy` section near the bottom of the file.
 
-*See apiProxy under webconfig.lua for more details.*
+*See [apiProxy](http://docs.evostream.com/ems_user_guide/webconfigfile#apiproxy) under webconfig.lua for more details.*
 
 
 
