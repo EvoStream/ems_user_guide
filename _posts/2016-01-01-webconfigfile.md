@@ -282,12 +282,20 @@ To enable Proxy Authentication you will open the _webconfig.lua_ config file and
 
 Once enabled, new API calls using Proxy Authentication will be formatted as follows:
 
+    For EMS 1.7 series:
+    http://userName:password@EWS_IP:EWS_PORT/pseudoDomain/command%3fparams=…
+
+    For EMS 2.0 series:
     http://userName:password@EWS_IP:EWS_PORT/pseudoDomain/command?params=…
 
 Note: The EWS_PORT above is defined in webconfig.lua under applications > rootDirectory > port.
 
 Here's an example with parameters:
 
+    For EMS 1.7 series:
+    http://user1:pass1@localhost:8888/apiproxy/pullstream%3fparams=dXJpPXJ0bXA6Ly9zdHJlYW1pbmcuY2l0eW9mYm9zdG9uLmdvdi9saXZlL2NhYmxlIGxvY2Fsc3RyZWFtbmFtZT1zdHJlYW0x
+
+    For EMS 2.0 series:
     http://user1:pass1@localhost:8888/apiproxy/pullstream?params=dXJpPXJ0bXA6Ly9zdHJlYW1pbmcuY2l0eW9mYm9zdG9uLmdvdi9saXZlL2NhYmxlIGxvY2Fsc3RyZWFtbmFtZT1zdHJlYW0x
 
 Here's an example without parameters:
